@@ -12,9 +12,9 @@ const Stack = createStackNavigator();
 
 const UselessTextInput = () => {
     return (
-        <SafeAreaView style={tw`flex-1 justify-center w-full bg-blue-100`}>            
-            <NavigationContainer>
-                <Stack.Navigator style={tw`bg-blue-100`}>
+        <SafeAreaView style={tw`flex-1 justify-center`}>            
+            <NavigationContainer style={tw`bg-blue-200`}>
+                <Stack.Navigator >
                     <Stack.Screen name="Login" component={Login}/>
                     <Stack.Screen name="PageOne" component={PageOne}/>
                     <Stack.Screen name="PageTwo" component={PageTwo}/>

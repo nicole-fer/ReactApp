@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Text, TextInput, Image} from 'react-native';
 import tw from "tailwind-react-native-classnames";
+
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
