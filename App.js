@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {SafeAreaView, Text, TextInput, Image} from 'react-native';
+import tw from "tailwind-react-native-classnames";
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import PageOne from './PageOne/PageOne';
+import PageTwo from './PageTwo/PageTwo';
+import Login from './PageOne/Login/Login'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Stack = createStackNavigator();
+
+const UselessTextInput = () => {
+    return (
+        <SafeAreaView style={tw`flex-1 justify-center w-full bg-blue-100`}>            
+            <NavigationContainer>
+                <Stack.Navigator style={tw`bg-blue-100`}>
+                    <Stack.Screen name="Login" component={Login}/>
+                    <Stack.Screen name="PageOne" component={PageOne}/>
+                    <Stack.Screen name="PageTwo" component={PageTwo}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </SafeAreaView>
+    );
+};
+
+export default UselessTextInput;
