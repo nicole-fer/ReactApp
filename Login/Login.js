@@ -1,22 +1,15 @@
 import React from 'react';
-import {SafeAreaView, Text, TextInput, Image} from 'react-native';
+import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View} from 'react-native';
 import tw from "tailwind-react-native-classnames";
-
-import {createStackNavigator} from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
 
 export default function Login({navigation}) {
     const [text, onChangeText] = React.useState("");
 
     return (
         <SafeAreaView style={tw`flex-1 justify-center w-full p-8 bg-pink-50`}>
-            <Image
-                source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-            /> 
             <Text style={tw`text-indigo-500 text-sm font-bold mb-2`}> Username</Text>
             <TextInput 
-                style={tw`border rounded py-2 px-3 text-grey-400 border-indigo-900`}
+                style={tw`border rounded py-2 px-3 text-gray-400 border-indigo-900`}
                 onChangeText ={onChangeText}
                 value={text}
             />
@@ -44,7 +37,6 @@ export default function Login({navigation}) {
                     Registrar
                 </Text> 
             </Text>
-
         </SafeAreaView>
     );
 };
