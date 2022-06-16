@@ -14,19 +14,8 @@ import { config } from './firebaseconfig';
 //import * as firebase from 'firebase';
 
 const Stack = createStackNavigator();
-/* const home = (email,password)=>{
-    if (!email && !password){
-        alert("Bote as entradas certas")
-    }
-    
-}; */
 
 const UselessTextInput = () => {
-    useEffect(()=>{
-    if(!firebase.app.length){
-        firebase.initializeApp(config)
-    }
-}, [])
     return (
         <SafeAreaView style={tw`flex-1 justify-center`}>
             <NavigationContainer>
