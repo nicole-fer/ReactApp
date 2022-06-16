@@ -2,9 +2,14 @@ import React , { useState } from 'react';
 import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View, Button, Touchable} from 'react-native';
 import twn from '../Tailwind';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {useForm, Controller} from 'react-hook-form';
+import {useForm, Controller, set} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
+import firebase from '../firebaseconfig'
+
+
+console.log(firebase.auth);
+console.log(firebase.default.auth);
 
 const schema = yup.object({
     email: yup.string().email("Email Inválido").required("Informe Seu Email"),
@@ -13,15 +18,22 @@ const schema = yup.object({
 
 
  export default function Login({navigation}) {
-
-    const {control, handleSubmit, formState:{ errors }} = useForm({
+    
+    const {control, handleSubmit, handleReg, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })
-
+    const database = firebase.firestore();
     function handleSingIn (data){
-        if(data =! ''){
-            navigation.navigate('PageOne')
-        }
+        firebase.auth().signInWithEmailAndPassword(data.email, data.password)
+        .then((userCredential) => {
+          // Signed in
+          var user = userCredential.user;
+          navigation.navigate('PageTwo', { idUser: user.uid})
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
     }
  
     return (
@@ -78,10 +90,13 @@ const schema = yup.object({
                     >Acessar
                 </Text>
             </TouchableOpacity>
-      {/*       <Text style={twn`bg-sky-400 text-center text-white py-2 font-bold text-sm rounded-md`}
-                    onPress={() => {}}>
-                    Registrar
-                </Text> */}
+
+            <Text style={twn`bg-rose-50  text-center border-rose-400 text-rose-400 py-2 font-bold text-sm rounded-md`}
+                      onPress={() => navigation.navigate('PageOne')}>
+                      Registrar
+            </Text>
+
+ 
         </SafeAreaView>
         
     );

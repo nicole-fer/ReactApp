@@ -8,7 +8,7 @@ import PageOne from './PageOne/PageOne';
 import PageTwo from './PageTwo/PageTwo';
 import Login from './Login/Login';
 import twn from './Tailwind';
-import firebase from 'firebase';
+import firebase from './firebaseconfig';
 import { config } from './firebaseconfig';
 
 //import * as firebase from 'firebase';
@@ -30,7 +30,7 @@ const UselessTextInput = () => {
                         }}
                     />
                     <Stack.Screen name="PageOne" component={PageOne}/>
-                    <Stack.Screen name="Registrar" component={PageTwo}/>
+                    <Stack.Screen name="PageTwo" component={PageTwo}/>
                 </Stack.Navigator>
             </NavigationContainer>
             <Text style={twn`pb-4 pl-24 pr-24 bg-yellow-100 text-sky-300 text-xs text-center`}>nichfge kaowsqt iqhwdfdg lorem spudim uyqterm weidjwfwf</Text>
