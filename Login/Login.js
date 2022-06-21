@@ -7,7 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import firebase from '../firebaseconfig'
 
-
 console.log(firebase.auth);
 console.log(firebase.default.auth);
 
@@ -15,7 +14,6 @@ const schema = yup.object({
     email: yup.string().email("Email Inválido").required("Informe Seu Email"),
     password: yup.string().min(6, "A senha deve ter pelo menos 6 digitos").required("Informe a Senha"),
 })
-
 
  export default function Login({navigation}) {
     
@@ -37,12 +35,13 @@ const schema = yup.object({
     }
  
     return (
-        <SafeAreaView style={twn`flex-1 justify-center w-full p-8 bg-yellow-100`}>            
-          {/*       <Image
-                    style={tw`w-32 h-32`}
-                    source={require('../images/LogoFak.jpg')}
-                /> */}
-            <Text style={twn`text-rose-400 text-sm font-bold mb-2 mt-4 `} > 
+        <SafeAreaView style={twn`flex-1 justify-center w-full p-8 bg-white`}>            
+          {       <Image
+                    style={twn`w-32 h-32 ml-20`}
+                    source={require('../images/LogoFak.png')}
+                />}
+
+            <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
                 Email
             </Text>
             <Controller
@@ -50,7 +49,7 @@ const schema = yup.object({
                 name="email"
                 render={({field: { onChange, onBlur, value}})=>(
                     <TextInput 
-                        style={twn`border rounded w-full py-2 px-3 text-rose-700 mb-3 border-rose-600 bg-rose-100`}
+                        style={twn`border rounded w-full py-2 px-3 text-fuchsia-700 mb-3 border-fuchsia-600 bg-fuchsia-50`}
                         returnKeyType='go'
                         autoCorrect={false}
                         onChangeText ={onChange}
@@ -61,7 +60,7 @@ const schema = yup.object({
                 />
             {errors.email && <Text style={twn`text-red-600`}>{errors.email?.message}</Text>}
 
-                <Text style={twn`text-rose-400 text-sm font-bold mb-2 mt-4 `} > 
+                <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
                 Password
             </Text>
 
@@ -70,7 +69,7 @@ const schema = yup.object({
                 name="password"
                 render={({field: { onChange, onBlur, value}})=>(
                     <TextInput 
-                        style={twn`border rounded w-full py-2 px-3 text-rose-700 mb-3 border-rose-600 bg-rose-100`}
+                        style={twn`border rounded w-full py-2 px-3 text-fuchsia-700 mb-3 border-fuchsia-600 bg-fuchsia-50`}
                         returnKeyType='go'
                         secureTextEntry={true}
                         password={true}
@@ -84,18 +83,24 @@ const schema = yup.object({
 
             {errors.password && <Text style={twn`text-red-600 `}>{errors.password?.message}</Text>}
 
-            <TouchableOpacity style={twn`bg-sky-300 mb-2 mt-2 rounded-md`} onPress={handleSubmit(handleSingIn)}> 
-                <Text style={twn`bg-sky-400 text-center text-white py-2 font-bold text-sm rounded-md`}
+            <TouchableOpacity style={twn`bg-fuchsia-300 mb-2 mt-2 rounded-md`} onPress={handleSubmit(handleSingIn)}> 
+                <Text style={twn`bg-fuchsia-500 text-center text-white py-2 font-bold text-sm rounded-md`}
                     // onPress={() => {handleSubmit(handleSingIn)}}>
                     >Acessar
                 </Text>
             </TouchableOpacity>
 
-            <Text style={twn`bg-rose-50  text-center border-rose-400 text-rose-400 py-2 font-bold text-sm rounded-md`}
+            <Text style={twn`bg-fuchsia-50  text-center border-solid border-2 border-fuchsia-500 text-fuchsia-500 py-2 font-bold text-sm rounded-md`}
                       onPress={() => navigation.navigate('PageOne')}>
                       Registrar
             </Text>
-
+            <Text style={twn`pt-12 pb-0 pl-24 pr-24 bg-white text-purple-300 text-xs text-center`}>nichfge kaowsqt iqhwdfdg lorem spudim uyqterm weidjwfwf</Text>
+                <View style={twn`pb-0 pt-4 pl-32 bg-white`}>
+                    <Image
+                        style={twn`w-8 h-8`}
+                        source={require('../images/LogoFak.png')}
+                    /> 
+                </View>
  
         </SafeAreaView>
         

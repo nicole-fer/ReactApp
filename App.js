@@ -8,10 +8,6 @@ import PageOne from './PageOne/PageOne';
 import PageTwo from './PageTwo/PageTwo';
 import Login from './Login/Login';
 import twn from './Tailwind';
-import firebase from './firebaseconfig';
-import { config } from './firebaseconfig';
-
-//import * as firebase from 'firebase';
 
 const Stack = createStackNavigator();
 
@@ -26,20 +22,25 @@ const UselessTextInput = () => {
                         signup = {false} 
                         //onSubmit={home}
                         options= {{
-                            headerStyle:twn`bg-rose-400`
+                            headerStyle:twn`bg-fuchsia-500`
                         }}
                     />
-                    <Stack.Screen name="PageOne" component={PageOne}/>
-                    <Stack.Screen name="PageTwo" component={PageTwo}/>
+                    <Stack.Screen 
+                        name="PageOne"
+                        component={PageOne}
+                        options= {{
+                            headerStyle:twn`bg-fuchsia-500`
+                        }}
+                        />
+                    <Stack.Screen 
+                        name="PageTwo" 
+                        component={PageTwo}
+                        options= {{
+                            headerStyle:twn`bg-fuchsia-500`
+                        }}
+                        />
                 </Stack.Navigator>
             </NavigationContainer>
-            <Text style={twn`pb-4 pl-24 pr-24 bg-yellow-100 text-sky-300 text-xs text-center`}>nichfge kaowsqt iqhwdfdg lorem spudim uyqterm weidjwfwf</Text>
-                <View style={twn`pb-4 pl-40 bg-yellow-100`}>
-                    <Image
-                        style={tw`w-8 h-8`}
-                        source={require('./images/logo.png')}
-                    /> 
-                </View>
         </SafeAreaView>
     );
 };
