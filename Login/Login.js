@@ -7,9 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import firebase from '../firebaseconfig'
 
-console.log(firebase.auth);
-console.log(firebase.default.auth);
-
 const schema = yup.object({
     email: yup.string().email("Email Inválido").required("Informe Seu Email"),
     password: yup.string().min(6, "A senha deve ter pelo menos 6 digitos").required("Informe a Senha"),
@@ -26,7 +23,7 @@ const schema = yup.object({
         .then((userCredential) => {
           // Signed in
           var user = userCredential.user;
-          navigation.navigate('PageTwo', { idUser: user.uid})
+          navigation.navigate('Rota', { idUser: user.uid})
         })
         .catch((error) => {
           var errorCode = error.code;
@@ -35,15 +32,16 @@ const schema = yup.object({
     }
  
     return (
-        <SafeAreaView style={twn`flex-1 justify-center w-full p-8 bg-white`}>            
-          {       <Image
-                    style={twn`w-32 h-32 ml-20`}
-                    source={require('../images/LogoFak.png')}
-                />}
-
+        <SafeAreaView style={twn`flex-1 justify-center w-full pl-8 pr-8 bg-white pt-6`}>            
+            <Image
+                style={twn`w-32 h-32 ml-20`}
+                source={require('../images/LogoFak.png')}
+            />
+            
             <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
                 Email
             </Text>
+
             <Controller
                 control={control}
                 name="email"
@@ -94,6 +92,11 @@ const schema = yup.object({
                       onPress={() => navigation.navigate('PageOne')}>
                       Registrar
             </Text>
+            <Text style={twn`text-fuchsia-500 font-bold text-xs text-right mt-1 mr-1`}
+                      //onPress={() => navigation.navigate('PageOne')}
+                      >
+                      Esqueceu a senha?
+            </Text>
             <Text style={twn`pt-12 pb-0 pl-24 pr-24 bg-white text-purple-300 text-xs text-center`}>nichfge kaowsqt iqhwdfdg lorem spudim uyqterm weidjwfwf</Text>
                 <View style={twn`pb-0 pt-4 pl-32 bg-white`}>
                     <Image
@@ -101,7 +104,6 @@ const schema = yup.object({
                         source={require('../images/LogoFak.png')}
                     /> 
                 </View>
- 
         </SafeAreaView>
         
     );
