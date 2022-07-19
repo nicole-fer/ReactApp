@@ -14,7 +14,7 @@ export default  () => (
         screenOptions={{
             tabBarStyle:twn`bg-teal-300 py-1`,
             tabBarActiveTintColor: '#a21caf',
-            tabBarInactiveTintColor: '#0f766e'
+            tabBarInactiveTintColor: '#0f766e',
         }
     }
     >

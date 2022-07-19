@@ -3,7 +3,7 @@ import {Text, Image} from 'react-native';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
-import firebase from '../firebaseconfig';
+
 import { Fragment, useState } from 'react';
 import MenuIcon  from 'react-native-heroicons/solid';
 import twn from '../Tailwind';
@@ -12,37 +12,25 @@ import { FlatList } from 'react-native-gesture-handler';
 
 
 export default function PageTwo ({navigation}){
-    const database = firebase.firestore();
-    function sair (){
-
-        //função signout
-        firebase.auth().signOut().then(() => {
-            navigation.reset({
-                routes: [{name: 'Login'}]
-            })
-          }).catch((error) => {
-          });
-    }
 
     return(
-        <View style={tw``} >
-
-            <ScrollView style={tw`flex-1 w-32`}>
-               <Text>main</Text>
-            </ScrollView>
-            <Text>main sfsfsfsfsffsfsfsffs sfsf ssefse ffsf sf s ss gsg sgs gs sg s s sgg g sg </Text>
-{/*             <View style={tw`relative h-96 w-full`}>
-                <Text style={tw`absolute inset-x-0 bottom-0 h-16 bg-gray-500`}> Footer </Text>
-            </View> */}
-
-{/*             <Text style={twn`w-1/2 bg-gray-800`}> Pagina 02 - Registrar </Text>
-            <Text style={twn`w-1/2 bg-gray-600`}> Pagina 02 - Registrar </Text> */}
-{/*             <Image
-                style={twn`w-1/2`}
-                source={require('../images/download.png')}
-            /> */}
-{/*             <Text style= {tw`bg-pink-100 mx-12 px-4 pt-2 pb-2 text-center border border-pink-300 mt-2`} > As redes sociais podem ser um ótimo veiculo para compartilhar experiências e pensamentos sobre a gestação com os seus amigos e familiares.</Text>
-            <Text style={tw`text-blue-700 text-sm font-bold mb-2 mt-4 text-blue-900`}  onPress={(sair)}> Logout</Text> */}
+        <View style={twn`flex-1 justify-center w-full bg-white`} >
+            <Text style= {tw`px-4 pt-2 pb-2 mt-2 text-2xl font-bold`} > Hoje </Text>
+            <View style={twn`bg-fuchsia-100 px-4 pt-2 pb-2 text-center border border-fuchsia-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`}>
+            <   Text style={twn`text-center text-teal-600 mb-4 mt-2 text-lg mb-2`}>     19    20  21  22  23  24  25  </Text>
+                <Text style={twn`text-center text-teal-600 mb-4 mt-2`}>Terça, 19 de Julho</Text>
+                <Image
+                    style={twn`w-64 h-64 ml-6 border border-pink-300 mt-2`}
+                    source={require('../images/One-month.png')}
+                />
+            </View>
+            <View style= {twn`bg-fuchsia-100 px-4 pt-2 pb-2 mb-6 text-center border border-fuchsia-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
+                <Text style= {tw`text-lg mb-2 text-center font-bold`} > 10 Semanas, 6 dias</Text>
+                <Text style= {tw`text-center`} > 1º Trimestre </Text>
+                <Text style= {twn`text-center text-teal-600 mt-2`} > Faltam: tantos dias </Text>
+                <Text style= {twn`text-center text-teal-600 mt-2`} > ------ </Text> 
+                {/* Aqui quero botar um componente que vai carregando de acorod com as semanas, quanto mais perto da data, mais preenchido vai ficando */}
+            </View>   
         </View>
     );
 }
