@@ -13,7 +13,7 @@ const UselessTextInput = () => {
     return (
         <Stack.Navigator             
             initialRouteName = "Preload">
-{/*             <Stack.Screen
+            <Stack.Screen
                 options={{
                     headerShown: false,
                 }}
@@ -21,18 +21,18 @@ const UselessTextInput = () => {
                 component = {Preload}
 
             >    
-            </Stack.Screen> */}
-{/*             <Stack.Screen 
+            </Stack.Screen> 
+             <Stack.Screen 
                 name="Login"
                 component={Login}
                 signup = {false} 
                 options={{
                     headerLeft: false,
-                    headerStyle: twn`bg-fuchsia-500 `,
-                    headerTitleStyle: twn`text-white`,
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
                 }}
                 //onSubmit={home}
-            />  */}
+            /> 
             <Stack.Screen 
                 name="Rota" 
                 component={Rota}

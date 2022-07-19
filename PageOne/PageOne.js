@@ -57,7 +57,7 @@ export default function Registrar (){
                   style={tw`w-32 h-32`}
                   source={require('../images/LogoFak.jpg')}
               /> */}
-          <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
+          <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Email
           </Text>
           <Controller
@@ -65,7 +65,7 @@ export default function Registrar (){
               name="email"
               render={({field: { onChange, onBlur, value}})=>(
                   <TextInput 
-                      style={twn`border rounded w-full py-2 px-3 text-fuchsia-700 mb-3 border-fuchsia-600 bg-fuchsia-50`}
+                      style={twn`border rounded w-full py-2 px-3 text-pink-700 mb-3 border-pink-600 bg-pink-50`}
                       returnKeyType='go'
                       autoCorrect={false}
                       onChangeText ={onChange}
@@ -76,7 +76,7 @@ export default function Registrar (){
               />
           {errors.email && <Text style={twn`text-red-600`}>{errors.email?.message}</Text>}
 
-              <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
+              <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Password
           </Text>
 
@@ -85,7 +85,7 @@ export default function Registrar (){
               name="password"
               render={({field: { onChange, onBlur, value}})=>(
                   <TextInput 
-                      style={twn`border rounded w-full py-2 px-3 text-fuchsia-700 mb-3 border-fuchsia-600 bg-fuchsia-50`}
+                      style={twn`border rounded w-full py-2 px-3 text-pink-700 mb-3 border-pink-600 bg-pink-50`}
                       returnKeyType='go'
                       secureTextEntry={true}
                       password={true}
@@ -100,7 +100,7 @@ export default function Registrar (){
           {errors.password && <Text style={twn`text-red-600 `}>{errors.password?.message}</Text>}
 
 
-            <Text style={twn`text-fuchsia-500 text-sm font-bold mb-2 mt-4 `} > 
+            <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Confirmar Senha
             </Text>
           <Controller
@@ -108,7 +108,7 @@ export default function Registrar (){
               name="Confirmationpassword"
               render={({field: { onChange, onBlur, value}})=>(
                   <TextInput 
-                      style={twn`border rounded w-full py-2 px-3 text-fuchsia-700 mb-3 border-fuchsia-600 bg-fuchsia-50`}
+                      style={twn`border rounded w-full py-2 px-3 text-pink-700 mb-3 border-pink-600 bg-pink-50`}
                       returnKeyType='go'
                       secureTextEntry={true}
                       password={true}
@@ -120,8 +120,8 @@ export default function Registrar (){
               )}
               />
              {errors.Confirmationpassword && <Text style={twn`text-red-600`}>{errors.Confirmationpassword?.message}</Text>}
-          <TouchableOpacity style={twn`bg-fuchsia-300 mb-2 mt-2 rounded-md`} onPress={handleSubmit(handleSingIn)}> 
-              <Text style={twn`bg-fuchsia-500 text-center text-white py-2 font-bold text-sm rounded-md`}
+          <TouchableOpacity style={twn`bg-pink-300 mb-2 mt-2 rounded-md`} onPress={handleSubmit(handleSingIn)}> 
+              <Text style={twn`bg-pink-500 text-center text-white py-2 font-bold text-sm rounded-md`}
                   >Registrar Usuário
               </Text>
           </TouchableOpacity>

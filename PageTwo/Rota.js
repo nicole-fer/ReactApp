@@ -13,8 +13,11 @@ export default  () => (
     <Tab.Navigator 
         screenOptions={{
             tabBarStyle:twn`bg-teal-300 py-1`,
-            tabBarActiveTintColor: '#a21caf',
+            tabBarActiveTintColor: '#be185d',
             tabBarInactiveTintColor: '#0f766e',
+            headerStyle:twn`bg-pink-700`,
+            headerTitleStyle: twn`text-teal-400`,
+           
         }
     }
     >
@@ -24,7 +27,7 @@ export default  () => (
             options={{
                 tabBarIcon: ({ size, color }) => (
                     <Entypo name="home" size={size} color={color} />
-                )
+                )             
             }}
         /> 
         <Tab.Screen 
