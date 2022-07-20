@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import firebase from '../firebaseconfig'
 
+
 const schema = yup.object({
     email: yup.string().email("Email Inválido").required("Informe Seu Email"),
     password: yup.string().min(6, "A senha deve ter pelo menos 6 digitos").required("Informe a Senha"),

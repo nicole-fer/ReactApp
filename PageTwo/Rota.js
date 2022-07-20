@@ -2,11 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Informacoes from './Informacoes';
 import Perfil from './Perfil';
-import Agenda from './Agenda';
 import Consutas from './Consultas';
 import PageTwo from './PageTwo';
 import twn from '../Tailwind';
 import { Entypo, Feather, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
+import AgendaComponent from './AgendaComponent';
 
 const Tab = createBottomTabNavigator();
 export default  () => (
@@ -41,7 +41,7 @@ export default  () => (
         />
         <Tab.Screen 
             name="Agenda"
-            component={Agenda}
+            component={AgendaComponent}
             options={{
                 tabBarIcon: ({ size, color }) => (
                     <MaterialCommunityIcons name="calendar-month" size={size} color={color} />

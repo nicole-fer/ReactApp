@@ -1,6 +1,5 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import PageOne from '../PageOne/PageOne';
 import Login from '../Login/Login';
 import twn from '../Tailwind';
@@ -13,7 +12,7 @@ const UselessTextInput = () => {
     return (
         <Stack.Navigator             
             initialRouteName = "Preload">
-            <Stack.Screen
+{/*             <Stack.Screen
                 options={{
                     headerShown: false,
                 }}
@@ -32,7 +31,7 @@ const UselessTextInput = () => {
                     headerTitleStyle: twn`text-teal-400`,
                 }}
                 //onSubmit={home}
-            /> 
+            />  */}
             <Stack.Screen 
                 name="Rota" 
                 component={Rota}
@@ -44,10 +43,10 @@ const UselessTextInput = () => {
                 name="PageOne"
                 component={PageOne}
                 options={{
-                    headerStyle: twn`bg-fuchsia-500 `,
-                    headerTitleStyle: twn`text-white`,
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
                 }}
-                /> 
+            /> 
         </Stack.Navigator>
     );
 };
