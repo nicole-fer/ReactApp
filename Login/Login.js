@@ -59,7 +59,7 @@ const schema = yup.object({
                 />
             {errors.email && <Text style={twn`text-red-600`}>{errors.email?.message}</Text>}
 
-                <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
+            <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
                 Senha
             </Text>
 
@@ -78,7 +78,7 @@ const schema = yup.object({
                         value={value}
                     /> 
                 )}
-                />
+            />
 
             {errors.password && <Text style={twn`text-red-600 `}>{errors.password?.message}</Text>}
 
@@ -98,7 +98,7 @@ const schema = yup.object({
                       >
                       Esqueceu a senha?
             </Text>
-            <Text style={twn`pt-12 pb-0 pl-24 pr-24 bg-white text-teal-500 text-xs text-center`}>nichfge kaowsqt iqhwdfdg lorem spudim uyqterm weidjwfwf</Text>
+            <Text style={twn`pt-12 pb-0 pl-24 pr-24 bg-white text-teal-500 text-xs text-center`}>Aplicativo desenvolvido por  Nicole Fernandes</Text>
                 <View style={twn`pb-0 pt-4 pl-32 bg-white`}>
                     <Image
                         style={twn`w-8 h-8`}
