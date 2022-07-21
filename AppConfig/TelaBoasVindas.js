@@ -26,7 +26,8 @@ const TelaBoasVindas = () => {
             <View style= {twn`mt-24 ml-16`}>
             <Text 
                 style={twn`bg-pink-500 text-center text-white py-2 font-bold text-sm rounded-md ml-24 `}
-                onPress={() => navigation.navigate('TempoGravidez')}>
+                onPress={() => navigation.navigate('TempoGravidez')}
+                >
                 Seguinte
               </Text>
             </View>
