@@ -19,7 +19,7 @@ const Stack = createStackNavigator();
 const UselessTextInput = () => {
     return (
         <Stack.Navigator             
-            initialRouteName = "Preload">
+            initialRouteName = "Preload">            
 {/*             <Stack.Screen
                 options={{
                     headerShown: false,
@@ -38,15 +38,14 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
                 //onSubmit={home}
-            />  
-            <Stack.Screen 
+            />   
+             <Stack.Screen 
                 name="TempoGravidez"
                 component={TempoGravidez}
                 signup = {false} 
                 options={{
                     headerShown: false,
                 }}
-                //onSubmit={home}
             />  
             <Stack.Screen 
                 name="DataParto"
@@ -67,7 +66,7 @@ const UselessTextInput = () => {
                 //onSubmit={home}
             />  
 
-{/*              <Stack.Screen 
+ {/*              <Stack.Screen 
                 name="Login"
                 component={Login}
                 signup = {false} 
