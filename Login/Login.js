@@ -24,7 +24,7 @@ const schema = yup.object({
         .then((userCredential) => {
           // Signed in
           var user = userCredential.user;
-          navigation.navigate('Rota', { idUser: user.uid})
+          navigation.navigate('TelaBoasVindas', { idUser: user.uid})
         })
         .catch((error) => {
           var errorCode = error.code;
