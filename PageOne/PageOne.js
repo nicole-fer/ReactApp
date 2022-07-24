@@ -15,11 +15,16 @@ const schema = yup.object({
     password: yup.string().min(6, "A senha deve ter pelo menos 6 digitos").required("Informe a Senha"),
 })
 
+
 const erroPass = yup.object({
     Confirmationpassword:yup.string("As senhas não estão iguais")
 })
 
-export default function Registrar (){
+export default function Registrar ({ route }){
+
+    console.log(route.params.data)
+
+
     const {control, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })

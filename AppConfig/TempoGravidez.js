@@ -6,8 +6,8 @@ import twn from '../Tailwind';
 import { useNavigation } from '@react-navigation/native';
 
 
-const TempoGravidez = () => {
-    const navigation = useNavigation();
+const TempoGravidez = ( {navigation} ) => {
+    //const navigation = useNavigation();
 
     const title = [{t:'periodo', k:1}, {t:'parto', k:2}];
 
@@ -25,14 +25,14 @@ const TempoGravidez = () => {
                 title = {title[0].t}
                 key = {title[0].k}
                 style={twn`bg-pink-50 border-2 border-teal-600 text-center text-pink-800 py-2 font-bold text-sm rounded-md mb-2`}
-                onPress={() => navigation.navigate('DataPeriodo')}>
+                onPress={() => navigation.navigate('DataPeriodo',{ test:'periodo' })}>
                     Pela data em que meu último período começou
               </Text>
               <Text 
                 title = {title[1].t}
                 key = {title[1].k}
                 style={twn`bg-pink-50 border-2 border-teal-600 text-center text-pink-800 py-2 font-bold text-sm rounded-md`}
-                onPress={() => navigation.navigate('DataParto')}>
+                onPress={() => navigation.navigate('DataPeriodo',{ test:'parto' })}>
                     Pela data de parto estimada
               </Text>
         </View>
