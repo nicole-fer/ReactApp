@@ -6,11 +6,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import {useForm, Controller, set} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
-import firebase from '../firebaseconfig'
+import { fb } from '../firebaseconfig'
+import { db } from "../firebaseconfig"
 import Login from '../Login/Login'
 
 
 const schema = yup.object({
+    nome: yup.string().required("Informe Seu Nome"),
+    sobrenome: yup.string().required("Informe Seu Sobrenome"),
     email: yup.string().email("Email Inválido").required("Informe Seu Email"),
     password: yup.string().min(6, "A senha deve ter pelo menos 6 digitos").required("Informe a Senha"),
 })
@@ -20,28 +23,34 @@ const erroPass = yup.object({
     Confirmationpassword:yup.string("As senhas não estão iguais")
 })
 
-export default function Registrar ({ route }){
-
-    console.log(route.params.data)
-
+export default function Registrar ({ navigation }){
 
     const {control, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })
 
-    const database = firebase.firestore();
+    const database = fb.firestore();
     function handleSingIn (data){
-        console.log(data.password)
-        console.log(data.Confirmationpassword)
-
+       var name = data.nome
+       var sobrename = data.sobrenome
+       
         //Condição para registrar um novo usuário
         if (data.password === data.Confirmationpassword){
-            firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
-            console.log("As senhas estão iguais, vai da bom")
+            fb.auth().createUserWithEmailAndPassword (data.email, data.password)
             .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
+
+            db.collection("MyCollection").add({
+                id: user.uid,
+                nome: name,
+                sobrenome: sobrename,
+                email: data.email,
+                senha: data.password,
+            })
+
             navigation.navigate('Login', { idUser: user.uid})
+            
             // ...
         })
             .catch((error) => {
@@ -58,10 +67,44 @@ export default function Registrar ({ route }){
 
     return(
         <SafeAreaView style={twn`flex-1 justify-center w-full p-8 bg-white`}>            
-        {/*       <Image
-                  style={tw`w-32 h-32`}
-                  source={require('../images/LogoFak.jpg')}
-              /> */}
+            <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
+              Nome
+            </Text>
+            <Controller
+                control={control}
+                name="nome"
+                render={({field: { onChange, onBlur, value}})=>(
+                    <TextInput 
+                        style={twn`border rounded w-full py-2 px-3 text-pink-700 mb-3 border-pink-600 bg-pink-50`}
+                        returnKeyType='go'
+                        autoCorrect={false}
+                        onChangeText ={onChange}
+                        onBlur = {onBlur}
+                        value={value}
+                    /> 
+                )}
+                />
+                {errors.nome && <Text style={twn`text-red-600`}>{errors.nome?.message}</Text>}
+
+                <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
+              Sobrenome
+            </Text>
+            <Controller
+                control={control}
+                name="sobrenome"
+                render={({field: { onChange, onBlur, value}})=>(
+                    <TextInput 
+                        style={twn`border rounded w-full py-2 px-3 text-pink-700 mb-3 border-pink-600 bg-pink-50`}
+                        returnKeyType='go'
+                        autoCorrect={false}
+                        onChangeText ={onChange}
+                        onBlur = {onBlur}
+                        value={value}
+                    /> 
+                )}
+                />
+            {errors.sobrenome && <Text style={twn`text-red-600`}>{errors.sobrenome?.message}</Text>}
+
           <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Email
           </Text>
