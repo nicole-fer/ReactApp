@@ -1,15 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import {Text, Image} from 'react-native';
 import { View } from 'react-native';
 import twn from '../Tailwind';
 import MaskInput from 'react-native-mask-input';
 import { useNavigation } from '@react-navigation/native';
+import { fb } from '../firebaseconfig';
+import { db } from '../firebaseconfig';
 
-const DataPeriodo = ({ route }) => {
+const DataPeriodo = ({ route, navigation }) => {
+
+    const [user_user, setUser] = useState(null)
+
+    var user = fb.auth().currentUser;
+/*     db.collection('MyCollection').doc(user.uid).get(user.uid).then(documentSnapshot => {
+      //console.log('User exists: ', documentSnapshot.exists);
+      if (documentSnapshot.exists) {
+        //console.log('User data: ', documentSnapshot.data());
+        setUser(documentSnapshot.data())
+      }
+    }); */
+
+    //console.log(user_user)
+
+
+    /* Pegando o id do usuário atual */
+    
+ 
+    //const [user, setUser] = useState({})
+
+/*     useEffect(() => {
+        const getUser = async () => {
+            const snap = await getDoc(userDocRef)
+            setUser({email, senha, id, nome, sobrenome})
+            console.log(email)
+            console.log(senha)
+        }
+        getUser(email)
+        console.log(user)
+    },[]) */
+   // console.log(teste)
+
+    //console.log([email, senha, id, nome, sobrenome])
+    //console.log(userId)
 
     const [date, setDate] = React.useState('');
-    const navigation = useNavigation();
-    console.log(route.params.test)
+
+    /* Para add no banco */
+    const [dataPartoDia, setDataPartoDia] = useState(null)
+    const [dataPartoMes, setDataPartoMes] = useState(null)
+    const [dataPartoAno, setDataPartoAno] = useState(null)
+
+    /* Caso escolher Periodo, ele não mostra parto, caso escolha parto, ele nao mostra periodo */
 
     const [shouldShowPe, setShouldShowPe] = useState(()=>{
         if(route.params.test == 'periodo'){
@@ -26,49 +67,123 @@ const DataPeriodo = ({ route }) => {
         }
     });
 
-    const testeOne = (masked) => {
+    /* Função para adicionar dados no firestore */
+/*     const add = () => {
+        db.collection("MyCollection").add({
+            id: 
+        })
+    } */
+
+     const testeOne = (masked) => {
         setDate(masked)
         const teste = masked.split('/')
         const dia = teste[0]
         const ano = teste[2]
-            if (teste[1] == '01') {
-                teste[1] = 1
-            } else if (teste[0] == '02'){
-                teste[1] = 2
-            } else if (teste[1] == '03'){
-                teste[1] = 3
-            } else if (teste[1] == '04'){
-                teste[1] = 4
-            } else if (teste[1] == '05'){
-                teste[1] = 5
-            } else if (teste[1] == '06'){
-                teste[1] = 6
-            } else if (teste[1] == '07'){
-                teste[1] = 7
-            } else if (teste[1] == '08'){
-                teste[1] = 8
-            } else if (teste[0] == '09'){
-                teste[1] = 9
-            }  
-            const mes = teste[1]
-            const newDia = parseInt(dia)
-            const newMes = parseInt(mes)
-            const newAno = parseInt (ano) 
-            console.log('dia',  dia)
-            console.log('mes', mes)
-            console.log('ano', ano)
+        if (teste[1] == '01') {
+            teste[1] = 1
+        } else if (teste[0] == '02'){
+            teste[1] = 2
+        } else if (teste[1] == '03'){
+            teste[1] = 3
+        } else if (teste[1] == '04'){
+            teste[1] = 4
+        } else if (teste[1] == '05'){
+            teste[1] = 5
+        } else if (teste[1] == '06'){
+            teste[1] = 6
+        } else if (teste[1] == '07'){
+            teste[1] = 7
+        } else if (teste[1] == '08'){
+            teste[1] = 8
+        } else if (teste[0] == '09'){
+            teste[1] = 9
+        }  
+        const mes = teste[1]
+        const newDia = parseInt(dia)
+        const newMes = parseInt(mes)
+        const newAno = parseInt (ano) 
 
-        if (mes >= 4) {
-            const CalcProvPartoMes = newMes - 3
-            const CalcProvPartoDia = newDia + 7
-            const CalcProvAno = newAno + 1
-            const DataFinal = [CalcProvPartoDia, CalcProvPartoMes, CalcProvAno]
-            console.log(DataFinal)
-        } else if (mes <= 3) {
-            const CalcProvPartoDia = newDia + 7
-            const CalcProvPartoMes = newMes + 9
-            const DataFinal = [CalcProvPartoDia, CalcProvPartoMes, newAno]
-            console.log(DataFinal)
+        setDataPartoDia(newDia)
+        setDataPartoMes(newMes)
+        setDataPartoAno(newAno)
+    }
+
+    console.log(date)
+
+    const dataFinal = (dia,mes,ano) => {
+        dia = dataPartoDia
+        mes = dataPartoMes
+        ano = dataPartoAno
+
+        console.log(dia) 
+        console.log(mes)
+        console.log(ano)
+        //caso o mes for maior que 4 o ano soma mais 1
+        if (mes >= 4){
+            // caso seja no comeco ou no meio do mes
+            if((mes == 4 || mes == 5 || mes == 6 || mes == 7 || mes == 8 || mes == 9 || mes == 10 || mes == 11 || mes == 12) && (dia <= 23)){
+                const newDia = dia + 7
+                const newMes = mes - 3
+                const newAno = ano + 1
+
+                console.log([newMes, newDia, newAno])
+                 db.collection("MyCollection").doc(user.uid).set({
+                    dia_data_parto: newDia,
+                    mes_data_parto: newMes,
+                    ano_data_parto: newAno,
+                })
+            }
+
+            // caso mes tenha 30 dias
+            else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && (dia >= 24)) {
+                const newDia = dia - 23
+                const newMes = mes - 2
+                const newAno = ano + 1
+
+                console.log([newMes, newDia, newAno])
+            }
+            // meses com 31 dias
+            else if ((mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (dia >=25)){
+                const newDia = dia - 24 // 30 - 7
+                const newMes = mes - 2
+                const newAno = ano + 1
+
+                console.log([newMes, newDia, newAno])
+            }
+        } 
+        
+        //caso o mes for menor de ou igual a 3 o ano é o mesmo
+        else if (mes <= 3) {
+            // Caso seja no comeco ou no final do mes 
+            if((mes == 1 || mes == 2 || mes == 3 ) && (dia <= 24)) {
+                const newDia = dia + 7 // mes é de 31 dias
+                const newMes = mes + 9
+                const newAno = ano 
+                console.log([newMes, newDia, newAno])
+                 db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+            }
+
+            //Tratamento de excessao caso o dia for no final do mes
+            else if ((mes == 1 || mes == 3 ) && (dia >= 25)){
+                const newDia = dia - 24 // mes é de 31 dias
+                const newMes = mes + 10
+                const newAno = ano 
+                console.log([newMes, newDia, newAno])
+            }
+            else if (mes == 2 && dia >=22){ // tratamento de excessao em fevereiro
+                const newDia = dia - 21 // 28-7
+                const newMes = mes + 10
+                const newAno = ano 
+                console.log([newMes, newDia, newAno])
+            }
 
         }
 
@@ -96,8 +211,8 @@ const DataPeriodo = ({ route }) => {
                     /> 
                     <Text   
                         style={twn`bg-teal-500 border-2 border-teal-600 text-center text-white py-2 font-bold text-sm rounded-md mt-16 ml-32`}
-                        //onPress={() => navigation.navigate('Rota', DataFinal)}
-                        //onPress={(testeOne)}
+                        //onPress={() => navigation.navigate('Rota')}
+                        onPress={(dataFinal)}
                         > 
                         Próximo
                     </Text>
