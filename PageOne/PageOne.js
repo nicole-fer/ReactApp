@@ -25,6 +25,7 @@ const erroPass = yup.object({
 
 export default function Registrar ({ navigation }){
 
+
     const {control, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })
@@ -40,8 +41,14 @@ export default function Registrar ({ navigation }){
             .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
+            var dia = 0
+            var mes = 0
+            var ano = 0
 
-            db.collection("MyCollection").add({
+            db.collection("MyCollection").doc(user.uid).set({
+                dia:dia,
+                mes: mes,
+                ano:ano,
                 id: user.uid,
                 nome: name,
                 sobrenome: sobrename,
