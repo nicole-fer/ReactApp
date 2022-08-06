@@ -20,7 +20,7 @@ const UselessTextInput = () => {
     return (
         <Stack.Navigator             
             initialRouteName = "Preload">            
-{/*             <Stack.Screen
+             <Stack.Screen
                 options={{
                     headerShown: false,
                 }}
@@ -28,9 +28,30 @@ const UselessTextInput = () => {
                 component = {Preload}
 
             >    
-            </Stack.Screen>  */}
+            </Stack.Screen>
+
+            <Stack.Screen 
+                name="Login"
+                component={Login}
+                signup = {false} 
+                options={{
+                    headerLeft: false,
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
+                }}
+                //onSubmit={home}
+            />
+
+            <Stack.Screen 
+                name="PageOne"
+                component={PageOne}
+                options={{
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
+                }}
+            /> 
     
-{/*              <Stack.Screen 
+              <Stack.Screen 
                 name="TelaBoasVindas"
                 component={TelaBoasVindas}
                 signup = {false} 
@@ -38,8 +59,9 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
                 //onSubmit={home}
-            />   */} 
-             <Stack.Screen 
+            /> 
+
+              <Stack.Screen 
                 name="TempoGravidez"
                 component={TempoGravidez}
                 signup = {false} 
@@ -64,19 +86,9 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
                 //onSubmit={home}
-            />  
+            /> 
 
-{/*                <Stack.Screen 
-                name="Login"
-                component={Login}
-                signup = {false} 
-                options={{
-                    headerLeft: false,
-                    headerStyle: twn`bg-pink-700 `,
-                    headerTitleStyle: twn`text-teal-400`,
-                }}
-                //onSubmit={home}
-            />  */}
+
             <Stack.Screen 
                 name="Rota" 
                 component={Rota}
@@ -84,14 +96,7 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
             /> 
-            <Stack.Screen 
-                name="PageOne"
-                component={PageOne}
-                options={{
-                    headerStyle: twn`bg-pink-700 `,
-                    headerTitleStyle: twn`text-teal-400`,
-                }}
-            /> 
+
         </Stack.Navigator>
     );
 };

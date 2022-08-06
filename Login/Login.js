@@ -5,7 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import {useForm, Controller, set} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
-import firebase from '../firebaseconfig'
+import { fb } from '../firebaseconfig'
+import { db } from '../firebaseconfig'
 
 
 const schema = yup.object({
@@ -18,13 +19,14 @@ const schema = yup.object({
     const {control, handleSubmit, handleReg, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })
-    const database = firebase.firestore();
+    const database = fb.firestore();
     function handleSingIn (data){
-        firebase.auth().signInWithEmailAndPassword(data.email, data.password)
+        fb.auth().signInWithEmailAndPassword(data.email, data.password)
         .then((userCredential) => {
           // Signed in
           var user = userCredential.user;
           navigation.navigate('TelaBoasVindas', { idUser: user.uid})
+
         })
         .catch((error) => {
           var errorCode = error.code;

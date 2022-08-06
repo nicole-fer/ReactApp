@@ -3,15 +3,15 @@ import {Text, Image} from 'react-native';
 import { SafeAreaView } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';
-import firebase from '../firebaseconfig';
+import { fb } from '../firebaseconfig';
 
 
 export default function Perfil ({navigation}){
-    const database = firebase.firestore();
+    const database = fb.firestore();
     function sair (){
 
         //função signout
-        firebase.auth().signOut().then(() => {
+        fb.auth().signOut().then(() => {
             navigation.reset({
                 routes: [{name: 'Login'}]
             })
