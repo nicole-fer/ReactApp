@@ -7,7 +7,6 @@ import Preload from './Preload/Preload';
 import Rota from '../PageTwo/Rota';
 import TelaBoasVindas from '../AppConfig/TelaBoasVindas';
 import TempoGravidez from '../AppConfig/TempoGravidez';
-import DataParto from '../AppConfig/DataParto';
 import DataPeriodo from '../AppConfig/DataPeriodo';
 import { AppRegistry } from 'react-native';
 import App from '../App';
@@ -26,7 +25,6 @@ const UselessTextInput = () => {
                 }}
                 name = "Preload"
                 component = {Preload}
-
             >    
             </Stack.Screen>
 
@@ -41,7 +39,6 @@ const UselessTextInput = () => {
                 }}
                 //onSubmit={home}
             />
-
             <Stack.Screen 
                 name="PageOne"
                 component={PageOne}
@@ -50,7 +47,6 @@ const UselessTextInput = () => {
                     headerTitleStyle: twn`text-teal-400`,
                 }}
             /> 
-    
               <Stack.Screen 
                 name="TelaBoasVindas"
                 component={TelaBoasVindas}
@@ -60,7 +56,6 @@ const UselessTextInput = () => {
                 }}
                 //onSubmit={home}
             /> 
-
               <Stack.Screen 
                 name="TempoGravidez"
                 component={TempoGravidez}
@@ -68,16 +63,7 @@ const UselessTextInput = () => {
                 options={{
                     headerShown: false,
                 }}
-            />  
-            <Stack.Screen 
-                name="DataParto"
-                component={DataParto}
-                signup = {false} 
-                options={{
-                    headerShown: false,
-                }}
-                //onSubmit={home}
-            />  
+            />   
             <Stack.Screen 
                 name="DataPeriodo"
                 component={DataPeriodo}
@@ -87,8 +73,6 @@ const UselessTextInput = () => {
                 }}
                 //onSubmit={home}
             /> 
-
-
             <Stack.Screen 
                 name="Rota" 
                 component={Rota}
@@ -96,7 +80,6 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
             /> 
-
         </Stack.Navigator>
     );
 };

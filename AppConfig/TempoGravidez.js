@@ -39,6 +39,4 @@ const TempoGravidez = ( {navigation} ) => {
     );
 }
 
-
-
 export default TempoGravidez;
