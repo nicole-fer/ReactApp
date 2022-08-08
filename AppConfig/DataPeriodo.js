@@ -8,40 +8,7 @@ import { fb } from '../firebaseconfig';
 import { db } from '../firebaseconfig';
 
 const DataPeriodo = ({ route, navigation }) => {
-
-    const [user_user, setUser] = useState(null)
-
     var user = fb.auth().currentUser;
-/*     db.collection('MyCollection').doc(user.uid).get(user.uid).then(documentSnapshot => {
-      //console.log('User exists: ', documentSnapshot.exists);
-      if (documentSnapshot.exists) {
-        //console.log('User data: ', documentSnapshot.data());
-        setUser(documentSnapshot.data())
-      }
-    }); */
-
-    //console.log(user_user)
-
-
-    /* Pegando o id do usuário atual */
-    
- 
-    //const [user, setUser] = useState({})
-
-/*     useEffect(() => {
-        const getUser = async () => {
-            const snap = await getDoc(userDocRef)
-            setUser({email, senha, id, nome, sobrenome})
-            console.log(email)
-            console.log(senha)
-        }
-        getUser(email)
-        console.log(user)
-    },[]) */
-   // console.log(teste)
-
-    //console.log([email, senha, id, nome, sobrenome])
-    //console.log(userId)
 
     const [date, setDate] = React.useState('');
 
@@ -51,7 +18,6 @@ const DataPeriodo = ({ route, navigation }) => {
     const [dataPartoAno, setDataPartoAno] = useState(null)
 
     /* Caso escolher Periodo, ele não mostra parto, caso escolha parto, ele nao mostra periodo */
-
     const [shouldShowPe, setShouldShowPe] = useState(()=>{
         if(route.params.test == 'periodo'){
             return true
@@ -66,13 +32,6 @@ const DataPeriodo = ({ route, navigation }) => {
             return false
         }
     });
-
-    /* Função para adicionar dados no firestore */
-/*     const add = () => {
-        db.collection("MyCollection").add({
-            id: 
-        })
-    } */
 
      const testeOne = (masked) => {
         setDate(masked)
@@ -127,11 +86,16 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newAno = ano + 1
 
                 console.log([newMes, newDia, newAno])
-                 db.collection("MyCollection").doc(user.uid).set({
-                    dia_data_parto: newDia,
-                    mes_data_parto: newMes,
-                    ano_data_parto: newAno,
-                })
+                db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+                 navigation.navigate('Rota')
             }
 
             // caso mes tenha 30 dias
@@ -141,6 +105,16 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newAno = ano + 1
 
                 console.log([newMes, newDia, newAno])
+                db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+                 navigation.navigate('Rota')
             }
             // meses com 31 dias
             else if ((mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (dia >=25)){
@@ -149,6 +123,16 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newAno = ano + 1
 
                 console.log([newMes, newDia, newAno])
+                db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+                 navigation.navigate('Rota')
             }
         } 
         
@@ -169,24 +153,42 @@ const DataPeriodo = ({ route, navigation }) => {
                         console.log('User updated!');
                     }
                  })
+                 navigation.navigate('Rota')
             }
-
             //Tratamento de excessao caso o dia for no final do mes
             else if ((mes == 1 || mes == 3 ) && (dia >= 25)){
                 const newDia = dia - 24 // mes é de 31 dias
                 const newMes = mes + 10
                 const newAno = ano 
                 console.log([newMes, newDia, newAno])
+                db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+                 navigation.navigate('Rota')
             }
             else if (mes == 2 && dia >=22){ // tratamento de excessao em fevereiro
                 const newDia = dia - 21 // 28-7
                 const newMes = mes + 10
                 const newAno = ano 
                 console.log([newMes, newDia, newAno])
+                db.collection("MyCollection").doc(user.uid).update({
+                    dia: newDia,
+                    mes: newMes,
+                    ano: newAno,
+                 }).then(documentSnapshot => {
+                    if (documentSnapshot.exists) {
+                        console.log('User updated!');
+                    }
+                 })
+                 navigation.navigate('Rota')
             }
-
         }
-
     }
 
     return(
@@ -229,11 +231,8 @@ const DataPeriodo = ({ route, navigation }) => {
                         style = {twn`text-sm mt-4 mb-4 bg-white text-center p-1 border border-teal-600 rounded-md `}
                         value={date}
                         placeholder={'Digite a data'}
-                        onChangeText={(masked, unmasked) => {
+                        onChangeText={(masked) => {
                             setDate(masked)
-
-                            console.log(masked)
-                            console.log(unmasked)
                             const teste = masked.split('/')
                             const dia = teste[0]
                             const mes = teste[1]
@@ -241,16 +240,21 @@ const DataPeriodo = ({ route, navigation }) => {
                             const newDia = parseInt(dia)
                             const newMes = parseInt(mes)
                             const newAno = parseInt (ano) 
-                            const DataPartoF = [newDia, newMes, newAno]
-                            console.log(DataPartoF)
-
+                            db.collection("MyCollection").doc(user.uid).update({
+                                dia: newDia,
+                                mes: newMes,
+                                ano: newAno,
+                             }).then(documentSnapshot => {
+                                if (documentSnapshot.exists) {
+                                    console.log('User updated!');
+                                }
+                             })
                         }}
                         mask={[/\d/, /\d/, '/' , /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
                     />
                     <Text   
                         style={twn`bg-teal-500 border-2 border-teal-600 text-center text-white py-2 font-bold text-sm rounded-md mt-16 ml-32`}
-                        //onPress={() => navigation.navigate('Rota', {DataPartoF})}
-                        //onPress={(testeOne)}
+                        onPress={() => navigation.navigate('Rota')}
                         > 
                         Próximo
                     </Text>
@@ -260,7 +264,4 @@ const DataPeriodo = ({ route, navigation }) => {
 
     );
 }
-
-
-
 export default DataPeriodo;
