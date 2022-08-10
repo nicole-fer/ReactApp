@@ -17,6 +17,7 @@ export default function PageTwo ({}){
     moment.locale('pt-br'); 
     var date= moment().format("dddd, LL")
 
+    /* Pegando os dados do Firestore */
     const [firebaseData, setFirebaseData] = useState({})
     var user = fb.auth().currentUser;    
 
@@ -29,6 +30,7 @@ export default function PageTwo ({}){
     },[])
    console.log(firebaseData)
 
+    /* Cálculo de quantos dias faltam para o fim da gestação */
     var dataTesteDois = moment(`${firebaseData.mes}/${firebaseData.dia}/${firebaseData.ano}`)
     var dataOne = new Date(dataTesteDois)
     var dataDois = new Date()
@@ -42,12 +44,14 @@ export default function PageTwo ({}){
     var aux=1
     var cont = 0
 
+    /* CONTA AS SEMANAS DA GESTACAO */
     while(aux <= semanasDias){
         aux = aux + 7
         cont = cont + 1
     }
     aux = aux -1
     
+    /* Mostra dinamicamente as semanas de acordo com a gestacao */
     if (aux>semanasDias){
       var semanas = (aux-7)/7
       console.log('semanas', semanas)
@@ -67,9 +71,55 @@ export default function PageTwo ({}){
     } else if(semanas >= 27){
         var message = "3º Trimestre"
     }
+
+    /* If para mostrar as fotos do feto de acordo com a gestacao */
+    var image = 0
+    var month = 0
+    if(semanas <= 4){
+        image = '../images/One-month.png'
+        month = "Primeiro Mês de Gestação"
+        console.log('imagem 1')
+    } else if (semanas >= 5 && semanas <= 8){
+        image =  require('../images/Two-months.png')
+        month = "Segundo Mês de Gestação"
+        console.log('imagem 2')
+    } else if (semanas >= 9 && semanas <= 12) {
+        image =  require('../images/Three-months.png')        
+        month = "Terceiro Mês de Gestação"
+        console.log('imagem 3')
+
+    } else if (semanas >= 13 && semanas <= 16) {
+        image =  require('../images/Four-months.png')
+        month = "Quarto Mês de Gestação"
+        console.log('imagem 4')
+    } else if (semanas >= 17 && semanas <= 21) {
+        image =  require('../images/Five-months.png')
+        month = "Quinto Mês de Gestação"
+        console.log('imagem 5')
+    } else if (semanas >= 22 && semanas <= 26) {
+        image =  require('../images/Six-months.png')
+        month = "Sexto Mês de Gestação"
+        console.log('imagem 6')
+    } else if (semanas >= 27 && semanas <= 30) {
+        image = require('../images/Seven-months.png')
+        month = "Sétimo Mês de Gestação"
+        console.log('imagem 7')
+    } else if (semanas >= 31 && semanas <= 35) {
+        image =  require('../images/Eight-months.png')
+        month = "Oitavo Mês de Gestação"
+        console.log('imagem 8')
+    } else if (semanas >= 36 && semanas <= 42) {
+        image =  require('../images/Nine-months.png')
+        month = "Nono Mês de Gestação"
+        console.log('imagem 9')
+    }
+
   /* Calculo da porcentagem */
-  var porcentagem = diasEspera/280
+  var porcentagem = 0
+  porcentagem = diasEspera/280
   console.log(porcentagem)
+
+  /*  -------------------------------------- Página Inicial ----------------------------------------------- */
     return(
         <ScrollView style={twn` w-full bg-white`}> 
             <Text style= {tw`px-4 pt-2 pb-2 mt-2 text-2xl font-bold`} > Hoje </Text>
@@ -81,18 +131,18 @@ export default function PageTwo ({}){
                 <Text style={twn`text-center text-teal-600 mb-4 mt-2`}> {date}</Text>
                 <Image
                     style={twn`w-64 h-64 ml-6 border border-pink-300 mt-2`}
-                    source={require('../images/One-month.png')}
+                    source={image}
                 />
+                <Text style= {twn`text-center text-teal-600 mt-6 mb-2`} > {month}  </Text>
             </View>
             <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-2 text-center border border-pink-400 mt-4 text-lg ml-4 mr-4 shadow-md rounded-md`} >
                 <Text style= {tw`text-lg mb-2 text-center font-bold text-pink-700`} > {semanas} Semanas, {dataDias} dias</Text>
-                <Text style= {tw`text-center`} > {message}  </Text>
+                <Text style= {twn`text-center text-teal-600`} > {message}  </Text>
             </View>   
             <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
                 <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} > Faltam: {diasEspera} dias </Text>
                 <Progress.Bar progress={porcentagem} width={290} color={`#db2777`}/>
                 <Text style= {twn`text-center text-teal-600 mt-2`} > Data Provável do Parto: {firebaseData.dia}/{firebaseData.mes}/{firebaseData.ano} </Text> 
-                {/* Aqui quero botar um componente que vai carregando de acorod com as semanas, quanto mais perto da data, mais preenchido vai ficando */}
             </View>   
         </ScrollView>
     );
