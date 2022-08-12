@@ -15,6 +15,8 @@ const schema = yup.object({
 })
 
  export default function Login({navigation}) {
+
+    //const [firebaseData, setFirebaseData] = useState({})
     
     const {control, handleSubmit, handleReg, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
@@ -24,7 +26,16 @@ const schema = yup.object({
         fb.auth().signInWithEmailAndPassword(data.email, data.password)
         .then((userCredential) => {
           // Signed in
+            console.log(data.email)
           var user = userCredential.user;
+/*           console.log(user.uid)
+          db.collection("MyCollection").where('id', '===', user.uid).get().then(documentSnapshot => {
+            if (documentSnapshot.exists) {
+                setFirebaseData(documentSnapshot.data())
+              }
+          }, [])
+          console.log(firebaseData); */
+
           navigation.navigate('TelaBoasVindas', { idUser: user.uid})
 
         })

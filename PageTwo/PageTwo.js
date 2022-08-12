@@ -12,8 +12,10 @@ import { db } from '../firebaseconfig';
 import * as Progress from 'react-native-progress';
 import styled from "styled-components/native";
 
-
+/* Página Inicial, onde terá todas as infomações necessárias da gestação de acordo com a configuração específica de cada gestante */
 export default function PageTwo ({}){
+
+    /* Adicionando configurações de data e hora (Brasil) */
     moment.locale('pt-br'); 
     var date= moment().format("dddd, LL")
 
@@ -118,10 +120,9 @@ export default function PageTwo ({}){
   var porcentagem = 0
   porcentagem = diasEspera/280
   console.log(porcentagem)
-
   /*  -------------------------------------- Página Inicial ----------------------------------------------- */
     return(
-        <ScrollView style={twn` w-full bg-white`}> 
+        <ScrollView style={twn`w-full bg-white`}> 
             <Text style= {tw`px-4 pt-2 pb-2 mt-2 text-2xl font-bold`} > Hoje </Text>
             <View style={twn`bg-pink-100 px-4 pt-2 pb-2 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`}>
                 <WeeklyCalendar
@@ -141,7 +142,7 @@ export default function PageTwo ({}){
             </View>   
             <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
                 <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} > Faltam: {diasEspera} dias </Text>
-                <Progress.Bar progress={porcentagem} width={290} color={`#db2777`}/>
+                <Progress.Bar progress={0.5} width={290} color={`#db2777`}/>
                 <Text style= {twn`text-center text-teal-600 mt-2`} > Data Provável do Parto: {firebaseData.dia}/{firebaseData.mes}/{firebaseData.ano} </Text> 
             </View>   
         </ScrollView>

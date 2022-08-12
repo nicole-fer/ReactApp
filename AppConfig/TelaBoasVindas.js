@@ -1,14 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Text, Image} from 'react-native';
 import { View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-web';
+import { fb, db } from '../firebaseconfig';
 
 const TelaBoasVindas = () => {
 
     const navigation = useNavigation();
+
+ /*   if (firebaseData.dia === 0 && firebaseData.mes  === 0 && firebaseData.ano === 0 ) {
+        navigation.navigate('TelaBoasVindas');
+   } else if (firebaseData.dia !== 0 && firebaseData.mes !== 0 && firebaseData.ano !== 0){
+        navigation.navigate('Rota');
+    } */
 
     return(
         <View style={twn`flex-1 justify-center w-full p-8 bg-teal-200`} >
