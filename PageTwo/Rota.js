@@ -31,7 +31,7 @@ export default  () => (
             }}
         /> 
         <Tab.Screen 
-            name="Consutas"
+            name="Exames"
             component={Consutas}
             options={{
                 tabBarIcon: ({ size, color }) => (
