@@ -10,6 +10,7 @@ import TempoGravidez from '../AppConfig/TempoGravidez';
 import DataPeriodo from '../AppConfig/DataPeriodo';
 import { AppRegistry } from 'react-native';
 import App from '../App';
+import Amamentacao from '../PageTwo/ArtigosDeInformacoes/Amamentacao'
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -78,6 +79,13 @@ const UselessTextInput = () => {
                 component={Rota}
                 options={{
                     headerShown: false,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Amamentação" 
+                component={Amamentacao}
+                options={{
+                    headerShown: true,
                 }}
             /> 
         </Stack.Navigator>
