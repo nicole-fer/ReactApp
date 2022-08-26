@@ -14,7 +14,6 @@ import styled from "styled-components/native";
 
 /* Página Inicial, onde terá todas as infomações necessárias da gestação de acordo com a configuração específica de cada gestante */
 export default function PageTwo ({}){
-
     /* Adicionando configurações de data e hora (Brasil) */
     moment.locale('pt-br'); 
     var date= moment().format("dddd, LL")
