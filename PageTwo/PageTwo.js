@@ -20,12 +20,14 @@ export default function PageTwo ({}){
 
     /* Pegando os dados do Firestore */
     const [firebaseData, setFirebaseData] = useState({})
+    const [loading, setLoading] = useState(true);
     var user = fb.auth().currentUser;    
 
     useEffect(() => {
         db.collection('MyCollection').doc(user.uid).get().then(documentSnapshot  => {
             if (documentSnapshot.exists) {
-              setFirebaseData(documentSnapshot.data())
+              setFirebaseData(documentSnapshot.data());
+              setLoading(false);
             }
         });
     },[])
@@ -121,29 +123,43 @@ export default function PageTwo ({}){
   console.log(porcentagem)
   /*  -------------------------------------- Página Inicial ----------------------------------------------- */
     return(
-        <ScrollView style={twn`w-full bg-white`}> 
-            <Text style= {tw`px-4 pt-2 pb-2 mt-2 text-2xl font-bold`} > Hoje </Text>
-            <View style={twn`bg-pink-100 px-4 pt-2 pb-2 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`}>
-                <WeeklyCalendar
-                    style={twn`h-24 w-72 bg-pink-100 mb-4`}
-                    locale = 'pt'
-                /> 
-                <Text style={twn`text-center text-teal-600 mb-4 mt-2`}> {date}</Text>
+        <ScrollView style={twn`w-full bg-white`}>
+             {loading &&  
+             <View style={tw`flex-1 justify-center w-full p-8 bg-white`}>
                 <Image
-                    style={twn`w-64 h-64 ml-6 border border-pink-300 mt-2`}
-                    source={image}
+                    style={twn`w-48 h-48 ml-16`}
+                    source={require('../images/LogoFak.jpg')}
                 />
-                <Text style= {twn`text-center text-teal-600 mt-6 mb-2`} > {month}  </Text>
-            </View>
-            <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-2 text-center border border-pink-400 mt-4 text-lg ml-4 mr-4 shadow-md rounded-md`} >
-                <Text style= {tw`text-lg mb-2 text-center font-bold text-pink-700`} > {semanas} Semanas, {dataDias} dias</Text>
-                <Text style= {twn`text-center text-teal-600`} > {message}  </Text>
-            </View>   
-            <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
-                <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} > Faltam: {diasEspera} dias </Text>
-                <Progress.Bar progress={0.5} width={290} color={`#db2777`}/>
-                <Text style= {twn`text-center text-teal-600 mt-2`} > Data Provável do Parto: {firebaseData.dia}/{firebaseData.mes}/{firebaseData.ano} </Text> 
-            </View>   
+                <LoadingIcon size="large" />
+            </View> }
+            {!loading &&  <View> 
+                <Text style= {tw`px-4 pt-2 pb-2 mt-2 text-2xl font-bold`} > Hoje </Text>
+                <View style={twn`bg-pink-100 px-4 pt-2 pb-2 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`}>
+                    <WeeklyCalendar
+                        style={twn`h-24 w-72 bg-pink-100 mb-4`}
+                        locale = 'pt'
+                    /> 
+                    <Text style={twn`text-center text-teal-600 mb-4 mt-2`}> {date}</Text>
+                    <Image
+                        style={twn`w-64 h-64 ml-6 border border-pink-300 mt-2`}
+                        source={image}
+                    />
+                    <Text style= {twn`text-center text-teal-600 mt-6 mb-2`} > {month}  </Text>
+                </View>
+                <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-2 text-center border border-pink-400 mt-4 text-lg ml-4 mr-4 shadow-md rounded-md`} >
+                    <Text style= {tw`text-lg mb-2 text-center font-bold text-pink-700`} > {semanas} Semanas, {dataDias} dias</Text>
+                    <Text style= {twn`text-center text-teal-600`} > {message}  </Text>
+                </View>   
+                <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
+                    <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} > Faltam: {diasEspera} dias </Text>
+                    <Progress.Bar progress={0.5} width={290} color={`#db2777`}/>
+                    <Text style= {twn`text-center text-teal-600 mt-2`} > Data Provável do Parto: {firebaseData.dia}/{firebaseData.mes}/{firebaseData.ano} </Text> 
+                </View> 
+            </View>  }
         </ScrollView>
     );
 }
+
+const LoadingIcon = styled.ActivityIndicator `
+    margin-top:50px
+`
