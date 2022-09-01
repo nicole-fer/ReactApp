@@ -1,6 +1,6 @@
 import tw from "tailwind-react-native-classnames";
 import React , { useState } from 'react';
-import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View, Button, Touchable} from 'react-native';
+import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View, Button, Touchable, ScrollView} from 'react-native';
 import twn from '../Tailwind';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {useForm, Controller, set} from 'react-hook-form';
@@ -73,7 +73,8 @@ export default function Registrar ({ navigation }){
     }
 
     return(
-        <SafeAreaView style={twn`flex-1 justify-center w-full p-8 bg-white`}>            
+        <ScrollView> 
+            <View  style={twn`flex-1 justify-center w-full p-8 bg-white`}> 
             <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Nome
             </Text>
@@ -180,8 +181,8 @@ export default function Registrar ({ navigation }){
                   >Registrar Usuário
               </Text>
           </TouchableOpacity>
-      </SafeAreaView>
-      
+            </View>           
+      </ScrollView>
   );
 };
 
