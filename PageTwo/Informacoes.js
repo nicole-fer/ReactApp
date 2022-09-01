@@ -13,7 +13,7 @@ export default function Informacoes ({navigation}){
              > 
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/testee.jpg')} 
+                    source={require('../images/artigo1.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
                      onPress={() => navigation.navigate('Amamentação')}> O que Você Precisa Saber Sobre Amamentação </Text>

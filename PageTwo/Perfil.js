@@ -54,7 +54,7 @@ export default function Perfil ({navigation}){
         <ScrollView style={tw`w-full bg-white`} >
             <Image
                     style={twn`w-full h-60`}
-                    source={require('../images/cc.png')}
+                    source={require('../images/perfil.png')}
             />
             <Text style={twn`bg-pink-700 text-lg font-bold text-teal-300 pl-4 pt-2 pb-2`}> Conta </Text>
             <Text style={twn`ml-4 text-teal-500  mt-4`}> Nome </Text>
