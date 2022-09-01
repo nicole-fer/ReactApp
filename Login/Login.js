@@ -15,8 +15,6 @@ const schema = yup.object({
 })
 
  export default function Login({navigation}) {
-
-    //const [firebaseData, setFirebaseData] = useState({})
     
     const {control, handleSubmit, handleReg, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
@@ -28,14 +26,6 @@ const schema = yup.object({
           // Signed in
             console.log(data.email)
           var user = userCredential.user;
-/*           console.log(user.uid)
-          db.collection("MyCollection").where('id', '===', user.uid).get().then(documentSnapshot => {
-            if (documentSnapshot.exists) {
-                setFirebaseData(documentSnapshot.data())
-              }
-          }, [])
-          console.log(firebaseData); */
-
           navigation.navigate('TelaBoasVindas', { idUser: user.uid})
 
         })
@@ -51,7 +41,7 @@ const schema = yup.object({
                 style={twn`w-32 h-32 ml-20`}
                 source={require('../images/LogoFak.jpg')}
             />
-            
+
             <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
                 Email
             </Text>
