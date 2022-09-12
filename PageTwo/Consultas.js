@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {Text, Image} from 'react-native';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';
 import CheckBox from 'expo-checkbox';
-import { boolean } from 'yup';
-
 
 export default function Consutas ({}){
-    
+
     const [isSelectedUm, setSelectionUm] = useState(false);
     const [isSelectedDois, setSelectionDois] = useState(false);
     const [isSelectedTres, setSelectionTres] = useState(false);
@@ -26,17 +24,29 @@ export default function Consutas ({}){
     const [isSelectedTerTrimDois, setSelectionTerTrimDois] = useState(false);
     const [isSelectedTerTrimTres, setSelectionTerTrimTres] = useState(false);
     const [isSelectedTerTrimQuatro, setSelectionTerTrimQuatro] = useState(false);
-    
 
     return(
+        
         <ScrollView style={tw`m-2 w-full bg-white`} vertical >
+        <View> 
             <Text style={twn`text-xl mt-2`}> 1º Trimestre </Text>
             <View style={twn`bg-pink-100 px-4 pt-2 pb-2 text-center border border-pink-400 mt-2 text-lg ml-2 mr-4 shadow-md rounded-md `}>
                 <View style={twn`flex-row`}>
                     <View style={twn`flex-1`}>
-                        <CheckBox
+                    <CheckBox
                             value={isSelectedUm}
                             onValueChange={setSelectionUm}
+                        />
+                    </View>
+                    <View style={twn`flex-auto mr-40`}>
+                        <Text>Hemograma</Text>
+                    </View>
+                </View>
+                <View style={twn`flex-row  mt-2`}>
+                    <View style={twn`flex-1`}>
+                    <CheckBox
+                            value={isSelectedDois}
+                            onValueChange={setSelectionDois}
                         />
                     </View>
                     <View style={twn`flex-auto mr-12`}>
@@ -50,8 +60,8 @@ export default function Consutas ({}){
                             onValueChange={setSelectionDois}
                         />
                     </View>
-                    <View style={twn`flex-auto mr-40`}>
-                        <Text>Hemograma</Text>
+                    <View style={twn`flex-auto ml-8`}>
+                        <Text>Teste de Coombs indireto nas pacientes Rh negativo</Text>
                     </View>
                 </View>
                 <View style={twn`flex-row mt-2`}>
@@ -205,7 +215,7 @@ export default function Consutas ({}){
                     </View>
                 </View>
             </View>
-
+            </View>
         </ScrollView>
     );
 }

@@ -13,7 +13,7 @@ export default function Informacoes ({navigation}){
             <View> 
             <Image                
                 style={twn`w-full h-48`}
-                source={require('../../images/testee.jpg')} 
+                source={require('../../images/artigo1.jpg')} 
                 /> 
             <Text style={twn` pb-2 pt-2 text-lg font-bold text-pink-800 text-center ml-2 mr-2`}> O que você precisa saber sobre Amamentação </Text>
             </View>

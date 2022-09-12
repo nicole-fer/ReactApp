@@ -96,11 +96,7 @@ const schema = yup.object({
                       onPress={() => navigation.navigate('PageOne')}>
                       Registrar
             </Text>
-            <Text style={twn`text-teal-400 font-bold text-xs text-right mt-1 mr-1`}
-                      //onPress={() => navigation.navigate('PageOne')}
-                      >
-                      Esqueceu a senha?
-            </Text>
+
             <Text style={twn`pt-12 pb-0 pl-24 pr-24 bg-white text-teal-500 text-xs text-center`}>Aplicativo desenvolvido por  Nicole Fernandes</Text>
                 <View style={twn`pb-0 pt-4 pl-32 bg-white`}>
                     <Image

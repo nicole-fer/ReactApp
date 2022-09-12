@@ -27,14 +27,14 @@ export default function Informacoes ({navigation}){
              >
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo2.jpg')} 
+                    source={require('../images/artigo7.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Dois </Text>
+                     onPress={() => navigation.navigate('Importancia do Pré-natal')}> Importância do Pre-natal </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Importancia do Pré-natal')}>O principal objetivo da atenção pré-natal e puerperal é acolher a mulher desde o início da gravidez, assegurando, no fim da gestação, o nascimento de uma criança saudável e a garantia do bem-estar materno e neonatal. </Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Importancia do Pré-natal')}>Clique para saber mais</Text>
             </View>
             <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
              > 

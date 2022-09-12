@@ -121,6 +121,7 @@ export default function PageTwo ({}){
   var porcentagem = 0
   porcentagem = diasEspera/280
   console.log(porcentagem)
+
   /*  -------------------------------------- Página Inicial ----------------------------------------------- */
     return(
         <ScrollView style={twn`w-full bg-white`}>

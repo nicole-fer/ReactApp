@@ -11,6 +11,7 @@ import DataPeriodo from '../AppConfig/DataPeriodo';
 import { AppRegistry } from 'react-native';
 import App from '../App';
 import Amamentacao from '../PageTwo/ArtigosDeInformacoes/Amamentacao'
+import ImportanciaPreNatal from '../PageTwo/ArtigosDeInformacoes/ImportanciaPreNatal'
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -84,6 +85,13 @@ const UselessTextInput = () => {
             <Stack.Screen 
                 name="Amamentação" 
                 component={Amamentacao}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Importancia do Pré-natal" 
+                component={ImportanciaPreNatal}
                 options={{
                     headerShown: true,
                 }}
