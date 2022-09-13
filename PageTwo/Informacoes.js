@@ -43,37 +43,37 @@ export default function Informacoes ({navigation}){
                     source={require('../images/artigo3.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Três </Text>
+                     onPress={() => navigation.navigate('Cuidados Pessoais na Gravidez')}> Cuidados Pessoais na Gravidez </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Cuidados Pessoais na Gravidez')}>A gravidez é a etapa da vida de uma mulher que causa mais dúvidas e necessidades únicas </Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Cuidados Pessoais na Gravidez')}>Clique para saber mais</Text>
             </View>
             <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
              > 
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo6.jpg')} 
+                    source={require('../images/artigo5.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Quatro </Text>
+                     onPress={() => navigation.navigate('Direitos Gestacionais')}>  Direitos durante o período da gravidez e após o parto </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Direitos Gestacionais')}> Quando uma mulher entra na fase de gestação, ela adquire alguns direitos até o pós-nascimento de seu filho. </Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Direitos Gestacionais')}>Clique para saber mais</Text>
             </View>
             <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
              >
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo4.jpg')}
+                    source={require('../images/artigo6.jpg')}
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Cinco </Text>
+                     onPress={() => navigation.navigate('Transformações Durante a Gestação')}> Transformações Durante a Gestação </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Transformações Durante a Gestação')}>A gravidez é um período de grandes transformações para a mulher, para seu(sua) parceiro(a) e toda a família.  </Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Transformações Durante a Gestação')}>Clique para saber mais</Text>
             </View>
             <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
              > 
