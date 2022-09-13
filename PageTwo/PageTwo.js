@@ -59,6 +59,7 @@ export default function PageTwo ({}){
       var semanas = (aux-7)/7
       console.log('semanas', semanas)
       var dataDias = aux-semanasDias
+      dataDias = 7 - dataDias
       console.log(`Você esta com ${semanas} semanas e ${dataDias} dias`)
       
     } else if (aux == semanasDias){
