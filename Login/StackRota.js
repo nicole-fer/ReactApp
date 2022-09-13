@@ -10,8 +10,11 @@ import TempoGravidez from '../AppConfig/TempoGravidez';
 import DataPeriodo from '../AppConfig/DataPeriodo';
 import { AppRegistry } from 'react-native';
 import App from '../App';
-import Amamentacao from '../PageTwo/ArtigosDeInformacoes/Amamentacao'
-import ImportanciaPreNatal from '../PageTwo/ArtigosDeInformacoes/ImportanciaPreNatal'
+import Amamentacao from '../PageTwo/ArtigosDeInformacoes/Amamentacao';
+import ImportanciaPreNatal from '../PageTwo/ArtigosDeInformacoes/ImportanciaPreNatal';
+import EvolucaoGestacional from '../PageTwo/ArtigosDeInformacoes/EvolucaoGestacional';
+import CuidadosGestacionais from '../PageTwo/ArtigosDeInformacoes/CuidadosGestacionais';
+import DireitosDaGestante from  '../PageTwo/ArtigosDeInformacoes/DireitosDaGestante';
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -92,6 +95,27 @@ const UselessTextInput = () => {
             <Stack.Screen 
                 name="Importancia do Pré-natal" 
                 component={ImportanciaPreNatal}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Cuidados Pessoais na Gravidez" 
+                component={CuidadosGestacionais}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Transformações Durante a Gestação" 
+                component={EvolucaoGestacional}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Direitos Gestacionais" 
+                component={DireitosDaGestante}
                 options={{
                     headerShown: true,
                 }}
