@@ -15,6 +15,9 @@ import ImportanciaPreNatal from '../PageTwo/ArtigosDeInformacoes/ImportanciaPreN
 import EvolucaoGestacional from '../PageTwo/ArtigosDeInformacoes/EvolucaoGestacional';
 import CuidadosGestacionais from '../PageTwo/ArtigosDeInformacoes/CuidadosGestacionais';
 import DireitosDaGestante from  '../PageTwo/ArtigosDeInformacoes/DireitosDaGestante';
+import Tarefas from '../PageTwo/Tarefas';
+import AddTarefas from '../PageTwo/AddTarefas'
+import EditarDeletarTarefa from '../PageTwo/Tarefas/EditarDeletarTarefa'
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -118,6 +121,30 @@ const UselessTextInput = () => {
                 component={DireitosDaGestante}
                 options={{
                     headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Tarefas" 
+                component={Tarefas}
+                options={{
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Adicionar Tarefa" 
+                component={AddTarefas}
+                options={{
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Editar Tarefa" 
+                component={EditarDeletarTarefa}
+                options={{
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
                 }}
             /> 
         </Stack.Navigator>
