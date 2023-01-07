@@ -13,7 +13,7 @@ import * as Progress from 'react-native-progress';
 import styled from "styled-components/native";
 
 /* Página Inicial, onde terá todas as infomações necessárias da gestação de acordo com a configuração específica de cada gestante */
-export default function PageTwo ({}){
+export default function PageTwo ({navigation}){
     /* Adicionando configurações de data e hora (Brasil) */
     moment.locale('pt-br'); 
     var date= moment().format("dddd, LL")
@@ -82,46 +82,34 @@ export default function PageTwo ({}){
     if(semanas <= 4){
         image = '../images/One-month.png'
         month = "Primeiro Mês de Gestação"
-        console.log('imagem 1')
     } else if (semanas >= 5 && semanas <= 8){
         image =  require('../images/Two-months.png')
         month = "Segundo Mês de Gestação"
-        console.log('imagem 2')
     } else if (semanas >= 9 && semanas <= 12) {
         image =  require('../images/Three-months.png')        
         month = "Terceiro Mês de Gestação"
-        console.log('imagem 3')
-
     } else if (semanas >= 13 && semanas <= 16) {
         image =  require('../images/Four-months.png')
         month = "Quarto Mês de Gestação"
-        console.log('imagem 4')
     } else if (semanas >= 17 && semanas <= 21) {
         image =  require('../images/Five-months.png')
         month = "Quinto Mês de Gestação"
-        console.log('imagem 5')
     } else if (semanas >= 22 && semanas <= 26) {
         image =  require('../images/Six-months.png')
         month = "Sexto Mês de Gestação"
-        console.log('imagem 6')
     } else if (semanas >= 27 && semanas <= 30) {
         image = require('../images/Seven-months.png')
         month = "Sétimo Mês de Gestação"
-        console.log('imagem 7')
     } else if (semanas >= 31 && semanas <= 35) {
         image =  require('../images/Eight-months.png')
         month = "Oitavo Mês de Gestação"
-        console.log('imagem 8')
     } else if (semanas >= 36 && semanas <= 42) {
         image =  require('../images/Nine-months.png')
         month = "Nono Mês de Gestação"
-        console.log('imagem 9')
     }
-
   /* Calculo da porcentagem */
   var porcentagem = 0
   porcentagem = diasEspera/280
-  console.log(porcentagem)
 
   /*  -------------------------------------- Página Inicial ----------------------------------------------- */
     return(
@@ -156,6 +144,12 @@ export default function PageTwo ({}){
                     <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} > Faltam: {diasEspera} dias </Text>
                     <Progress.Bar progress={0.5} width={290} color={`#db2777`}/>
                     <Text style= {twn`text-center text-teal-600 mt-2`} > Data Provável do Parto: {firebaseData.dia}/{firebaseData.mes}/{firebaseData.ano} </Text> 
+                </View> 
+
+                <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
+                    <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} 
+                        onPress={() => navigation.navigate('InfoFeto', { semanasFeto: semanas})}> 
+                        Veja mais Informações sobre o feto </Text>
                 </View> 
             </View>  }
         </ScrollView>

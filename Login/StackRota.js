@@ -16,8 +16,9 @@ import EvolucaoGestacional from '../PageTwo/ArtigosDeInformacoes/EvolucaoGestaci
 import CuidadosGestacionais from '../PageTwo/ArtigosDeInformacoes/CuidadosGestacionais';
 import DireitosDaGestante from  '../PageTwo/ArtigosDeInformacoes/DireitosDaGestante';
 import Tarefas from '../PageTwo/Tarefas';
-import AddTarefas from '../PageTwo/AddTarefas'
-import EditarDeletarTarefa from '../PageTwo/Tarefas/EditarDeletarTarefa'
+import AddTarefas from '../PageTwo/AddTarefas';
+import EditarDeletarTarefa from '../PageTwo/Tarefas/EditarDeletarTarefa';
+import InfoFeto from '../PageTwo/InfoFeto';
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -142,6 +143,14 @@ const UselessTextInput = () => {
             <Stack.Screen 
                 name="Editar Tarefa" 
                 component={EditarDeletarTarefa}
+                options={{
+                    headerStyle: twn`bg-pink-700 `,
+                    headerTitleStyle: twn`text-teal-400`,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Informações do Feto" 
+                component={InfoFeto}
                 options={{
                     headerStyle: twn`bg-pink-700 `,
                     headerTitleStyle: twn`text-teal-400`,
