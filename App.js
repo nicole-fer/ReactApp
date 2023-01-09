@@ -10,9 +10,7 @@ import UserContextProvider from './src/contexts/UserContext';
 import Rota from './PageTwo/Rota';
 import { AppRegistry } from 'react-native';
 
-
 AppRegistry.registerComponent('main',() => App);
-
 
 
 const Stack = createStackNavigator();

@@ -1,13 +1,13 @@
 import React , { useEffect, useState } from 'react';
-import {ScrollView, Text , View, Image } from 'react-native';
+import {ScrollView, Text , View, Image, ImageBackground } from 'react-native';
 import twn from '../Tailwind';
 
  export default function AddTarefas({ navigation, route }) {  
 
     var semanas = route.params.semanasFeto
 
-    if (semanas == 1 | 2 | 3 | 4){
-      var tempo = "1 - 4"
+    if (semanas == 1 || semanas == 2 || semanas === 3 || semanas == 4 ){
+      semanas = "1 - 4"
       var descricao = "uma sementinha de papoula" 
       var peso = "--"
       var tamanho = "--"
@@ -68,9 +68,13 @@ import twn from '../Tailwind';
         var tamanho = "10,1 cm"
     }
     else if(semanas == 16){
-        var descricao = "um pedaço de gengibre" 
-        var peso = "100 gramas"
+        var img = '../images/12.png'
+        var artigo = "um"
+        var descricao = "Pedaço de gengibre" 
+        var peso = "100 g"
         var tamanho = "11,6 cm"
+        var descricaoCorpo = "O óvulo é levado para dentro das trompas de falópio e aguarda a chegada do espermatozóide. Algumas mudanças comuns que você pode experimentar incluem seios sensíveis, alterações de humor, exaustão, constipação, gases no estômago e enjoo. Esse desconforto ocorre devido às alterações hormonais."
+        var sintomas = "um pouco de dor nas mamas, dor pélvica leve e até mesmo um impulso sexual aumentado."
     }
     else if(semanas == 17){
         var descricao = "uma romã" 
@@ -193,16 +197,51 @@ import twn from '../Tailwind';
         var tamanho = "51,2cm"
     }
 
-
+    const image = { uri: "https://lh3.googleusercontent.com/UAweV-efs6528sQ8K0lBM2WSywFHhl5Oa2Yq0pANI6UU0BR4HH1Yeg5K5ahntrgWiiGfPoS2ZOrnxzrENtyH3FLambrmc9n8tUm5G1g5mzvphXz8ntW8_LLu_A1QYHT1u36XHy24PuV6D_sF3thyHWcSSQ90xiUtRXO95NQXNhWG70JTezA03boh-BXVFuNkDqvrlaWktaLsDh8TTaeeugC6Ay-sY9w918TOL3OY4t-60G4iBVT6ZUIrbqdkCJu6c8FRJhVW6YQn58EqlhNF5elq__PjMkMSpgzYWH13YiNpoLtuZ_M81-_W8vZlw37Enbk4YHLiuDUprg2Sg-C0koBS3hkuxnKFJLXr8yGh8D-he_jjwITR7VbvbiSnGA43eFzNGUtNHA9JTN56_I5W8KscWb65Sy9ADAIA6jCBtdjNAKy0_kBtEhaU2QX2DgoC-qyaxdxR4e4cdkxydPIwJOuZa18zuBRS637yY3OmFaY2SlIcZJ2S7tPYnLVz8GmNXZic76BvxH0KQmbTtSQTnwMdl_lg-ka9MVSnTn8Tmypu3FuRTe8prDmxTUpXdh3IGXbw-rjIJu354czFKy9sU6SXSWto_ui7wHRC0V57KcwP8nlFMRKp-xQbHANjBfPR1Lwq_m747fWrrG3hYIKPGauvHBvVH755C5FBYra_G_z3y4Vx96RkdOPRF3S_V1ry4wfVNXRjizT6Shu2bp7uREwdzTUjeRttDTbTQaX5QF6KjeSHkPdOMWvQwe7aOs9i-rEe5idPMMYOM_fnHcL6VfZy2twNdiqHJcjpeg30q-2ykPBBun8pXQt3kU1aFAbAt7XiTfad6gZN_uG6x2NDBiUlXWgMnhu3Y9YKsMLjbOweJHZr99WEztferI7wmSFMaE744KjmYAMqIBKS2xj_z1AM_KG0lmryEsjBBJolkA4KXsesbiStB9DQr3YY10HZ_RbuYTT_rBiLvbkH_ohO=w402-h568-no?authuser=0" };
 
     return (
-        <ScrollView style={twn`w-full pt-4 bg-white`}>  
-            <View  style={twn`flex-1 justify-center w-full pl-5 pr-2 pt-2 flex items-stretch`}>  
+        <ScrollView style={twn`w-full`}>
+            <ImageBackground source={image}  resizeMode="cover">
+            <View  style={twn`flex-1 justify-center w-full pl-5 pr-2 pt-8 flex items-stretch`}>  
             <View>
-                <Text>Semanas Feto, {semanas}</Text>
-                <Text>Seu bebê agora está do tamanho de</Text>
+                <Text style={twn`text-center text-xl font-bold`}>Gravidez de {semanas} semanas</Text>
+                <Text style={twn`mx-4 font-bold pt-2 text-pink-700 text-center`}>Seu bebê agora está do tamanho de {artigo}</Text>
+                <Text style={twn`text-center text-lg pt-2 font-bold`}>{descricao}</Text>
+            </View>
+            <View>
+                <Image
+                    style={twn`w-64 h-56 ml-8`}
+                    source={require(img)}
+                />
+            </View>
+            <View  style={twn`flex-row bg-white mb-6 text-center mx-12 pt-2 pb-2 rounded-lg`}>
+                <View style={twn`flex-auto `}>
+                    <Text style={twn`ml-6 mr-6 font-bold`}>
+                    Peso:
+                    </Text>
+                    <Text style={twn`mr-6 font-bold ml-6 text-lg`}>
+                        {peso}
+                    </Text>
+                </View>
+                <View style={twn`flex-auto`}>
+                    <Text style={twn`mr-6 font-bold ml-6`}>
+                        Tamanho:
+                    </Text>
+                    <Text style={twn`mr-6 font-bold ml-6 text-lg`}>
+                        {tamanho}
+                    </Text>
+                </View>
+            </View>
+            <View>
+                <Text style={twn`mr-16 font-bold text-justify`}>
+                    No corpo da mamãe:  {descricaoCorpo}
+                </Text>
+                <Text style={twn`mr-16 font-bold text-justify mt-4 mb-4`}>
+                    Sintomas:  {sintomas}
+                </Text>
             </View>
           </View>
+          </ImageBackground>  
         </ScrollView>
         
     );

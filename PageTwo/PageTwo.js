@@ -148,7 +148,7 @@ export default function PageTwo ({navigation}){
 
                 <View style= {twn`bg-pink-100 px-4 pt-2 pb-2 mb-6 text-center border border-pink-400 mt-2 text-lg ml-4 mr-4 shadow-md rounded-md`} >
                     <Text style= {twn`text-center text-teal-600 mt-2 mb-2`} 
-                        onPress={() => navigation.navigate('InfoFeto', { semanasFeto: semanas})}> 
+                        onPress={() => navigation.navigate('Informações do Feto', { semanasFeto: semanas})}> 
                         Veja mais Informações sobre o feto </Text>
                 </View> 
             </View>  }

@@ -254,7 +254,7 @@ const DataPeriodo = ({ route, navigation }) => {
                     />
                     <Text   
                         style={twn`bg-teal-500 border-2 border-teal-600 text-center text-white py-2 font-bold text-sm rounded-md mt-16 ml-32`}
-                        onPress={() => navigation.navigate('UnidadeSaude')}
+                        onPress={() => navigation.navigate('PageTwo')}
                         > 
                         Próximo
                     </Text>
