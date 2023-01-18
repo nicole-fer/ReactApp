@@ -344,12 +344,16 @@ import twn from '../Tailwind';
     const bgTeal = { uri: "https://lh3.googleusercontent.com/UAweV-efs6528sQ8K0lBM2WSywFHhl5Oa2Yq0pANI6UU0BR4HH1Yeg5K5ahntrgWiiGfPoS2ZOrnxzrENtyH3FLambrmc9n8tUm5G1g5mzvphXz8ntW8_LLu_A1QYHT1u36XHy24PuV6D_sF3thyHWcSSQ90xiUtRXO95NQXNhWG70JTezA03boh-BXVFuNkDqvrlaWktaLsDh8TTaeeugC6Ay-sY9w918TOL3OY4t-60G4iBVT6ZUIrbqdkCJu6c8FRJhVW6YQn58EqlhNF5elq__PjMkMSpgzYWH13YiNpoLtuZ_M81-_W8vZlw37Enbk4YHLiuDUprg2Sg-C0koBS3hkuxnKFJLXr8yGh8D-he_jjwITR7VbvbiSnGA43eFzNGUtNHA9JTN56_I5W8KscWb65Sy9ADAIA6jCBtdjNAKy0_kBtEhaU2QX2DgoC-qyaxdxR4e4cdkxydPIwJOuZa18zuBRS637yY3OmFaY2SlIcZJ2S7tPYnLVz8GmNXZic76BvxH0KQmbTtSQTnwMdl_lg-ka9MVSnTn8Tmypu3FuRTe8prDmxTUpXdh3IGXbw-rjIJu354czFKy9sU6SXSWto_ui7wHRC0V57KcwP8nlFMRKp-xQbHANjBfPR1Lwq_m747fWrrG3hYIKPGauvHBvVH755C5FBYra_G_z3y4Vx96RkdOPRF3S_V1ry4wfVNXRjizT6Shu2bp7uREwdzTUjeRttDTbTQaX5QF6KjeSHkPdOMWvQwe7aOs9i-rEe5idPMMYOM_fnHcL6VfZy2twNdiqHJcjpeg30q-2ykPBBun8pXQt3kU1aFAbAt7XiTfad6gZN_uG6x2NDBiUlXWgMnhu3Y9YKsMLjbOweJHZr99WEztferI7wmSFMaE744KjmYAMqIBKS2xj_z1AM_KG0lmryEsjBBJolkA4KXsesbiStB9DQr3YY10HZ_RbuYTT_rBiLvbkH_ohO=w402-h568-no?authuser=0" };
     const bgPink = { uri:"https://lh3.googleusercontent.com/G7qLxrPggIhmq2JSKEq-bKBoRVWrskN9Cq3z4jKnySf8OxjGxSEjnmxkJFT-zwRZkqJfdBXq3P5Er_S1oi4l3fQ6oExdBszPxL04AExpyk8QmTU7-s9Esd5wrBtTFPFZgBUU1ajX4dgfmKAweI12whLveNzpujOrq1XJ5FmRjgopyiwDlIN_DqJHCHVJdUQljyIAx1vcwqgvpC3HF8R4Ynp9ulS-sck_20u8Y81dlrIoMu5hpCM0CtV42dhanv-G3O6Xgfh8nPwj3wV2WxG2q9vEXwkwCbWfsmbAVzZUqxrFp54ZS0CmM4y7psGFUiLSvtRLQP2ofS-AjJroaj3sH2C6b-WuvKTD8dEhU8d2nKa6tEg3Bc2re-QnTj51TKNqRZNVGOTsAn8d8ZCu9-y9A9PZ9NHVj4TNfgmHzFfMgVHgMRfBRwh3dU-Pt7jGqf3OgxnYwLA5cNHjOwk5kFC4UHddpfTSRQTchbrDy15WPgun7j1dzXvAU0oz_PIy6rvtw0s3__B260dQo8jqronJXICs7rwaERMS-nHhfhH_4AitCanqWJX3SslPoY3bNo8herNis0GT4UT0r2AVFr-YRfk9ZOEKLSAkfyCb2nkNwfEHOQgXXcpAk5kv6H0xFZ13QuYj2zIBF3fnaen0A53hcw1Re1BxA7CzrSYE2FFFm4cdbrxpMdo-yqaHyfWb-8nOS4eMEp93UJHS8QTa6Q3-MAc6mv2SzoEFP7M0wRlFyOthrQiFvw3e39-g84yo4eWcXv9tW8CKaYkLTRLiwdf5tyXH4063oOIRHs44TKI87EDvfL8RMwwMStWTO7_yHMdsz57Sdgik_QD85Zrl3BuTkuWa1vBGd3Z7TAE09fcNuvhhbtik2QhfYBIQ0Q1qhydx93_DR8ewq94bctB8Z7h4C6ywmbLwTvomekDsRH6hc0tDJQ=w402-h568-no?authuser=0" }
 
+    var sem = semanas
+     if (semanas >= 40 ){
+        sem = 40
+     }
 
-    var cor = semanas % 2 == 0 
+    var cor = sem % 2 == 0 
     if(cor){
-        var image = bgTeal
-    } else {
         var image = bgPink
+    } else {
+        var image = bgTeal
     }
 
     return (
@@ -389,7 +393,7 @@ import twn from '../Tailwind';
                 <Text style={twn`mr-12 font-bold text-justify`}>
                     No corpo :  {descricaoCorpo}
                 </Text>
-                <Text style={twn`mr-16 font-bold text-justify mt-2 mb-4`}>
+                <Text style={twn`mr-12 font-bold text-justify mt-2 mb-4`}>
                     Sintomas:  {sintomas}
                 </Text>
             </View>

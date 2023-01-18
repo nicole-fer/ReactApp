@@ -16,6 +16,7 @@ export default function Consutas ({}){
     const [isSelectedSet, setSelectionSet] = useState(false);
     const [isSelectedOito, setSelectionOito] = useState(false);
     const [isSelectedNove, setSelectionNove] = useState(false);
+    const [isSelectedDez, setSelectionDez] = useState(false);
 
     const [isSelectedSegTrimUm, setSelectionSegTrimUm] = useState(false);
     const [isSelectedSegTrimDois, setSelectionSegTrimDois] = useState(false);
@@ -56,8 +57,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedDois}
-                            onValueChange={setSelectionDois}
+                            value={isSelectedTres}
+                            onValueChange={setSelectionTres}
                         />
                     </View>
                     <View style={twn`flex-auto ml-8`}>
@@ -67,8 +68,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedTres}
-                            onValueChange={setSelectionTres}
+                            value={isSelectedQuatro}
+                            onValueChange={setSelectionQuatro}
                         />
                     </View>
                     <View style={twn`flex-auto mr-40`}>
@@ -78,8 +79,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedQuatro}
-                            onValueChange={setSelectionQuatro}
+                            value={isSelectedQuinto}
+                            onValueChange={setSelectionQuinto}
                         />
                     </View>
                     <View style={twn`flex-auto mr-20`}>
@@ -89,8 +90,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedQuinto}
-                            onValueChange={setSelectionQuinto}
+                            value={isSelectedSexto}
+                            onValueChange={setSelectionSexto}
                         />
                     </View>
                     <View style={twn`flex-auto mr-32`}>
@@ -100,8 +101,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedSexto}
-                            onValueChange={setSelectionSexto}
+                            value={isSelectedSet}
+                            onValueChange={setSelectionSet}
                         />
                     </View>
                     <View style={twn`flex-auto mr-12`}>
@@ -111,8 +112,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedSet}
-                            onValueChange={setSelectionSet}
+                            value={isSelectedOito}
+                            onValueChange={setSelectionOito}
                         />
                     </View>
                     <View style={twn`flex-auto ml-4`}>
@@ -122,8 +123,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedOito}
-                            onValueChange={setSelectionOito}
+                            value={isSelectedNove}
+                            onValueChange={setSelectionNove}
                         />
                     </View>
                     <View style={twn`flex-auto mr-16`}>
@@ -133,8 +134,8 @@ export default function Consutas ({}){
                 <View style={twn`flex-row mt-2`}>
                     <View style={twn`flex-1`}>
                         <CheckBox
-                            value={isSelectedNove}
-                            onValueChange={setSelectionNove}
+                            value={isSelectedDez}
+                            onValueChange={setSelectionDez}
                         />
                     </View>
                     <View style={twn`flex-auto mr-20`}>

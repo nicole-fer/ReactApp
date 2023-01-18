@@ -3,6 +3,7 @@ import {ScrollView, Text , View } from 'react-native';
 import twn from '../Tailwind';
 import { fb } from '../firebaseconfig'
 import { db } from '../firebaseconfig'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 
