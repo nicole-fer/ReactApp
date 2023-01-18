@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import PageOne from '../PageOne/PageOne';
+import Registrar from '../Registro/Registro';
 import Login from '../Login/Login';
 import twn from '../Tailwind';
 import Preload from './Preload/Preload';
@@ -52,7 +52,7 @@ const UselessTextInput = () => {
             />
             <Stack.Screen 
                 name="Registro"
-                component={PageOne}
+                component={Registrar}
                 options={{
                     headerStyle: twn`bg-pink-700 `,
                     headerTitleStyle: twn`text-teal-400`,
