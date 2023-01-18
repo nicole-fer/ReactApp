@@ -1,14 +1,12 @@
-import tw from "tailwind-react-native-classnames";
 import React , { useState } from 'react';
-import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View, Button, Touchable, ScrollView} from 'react-native';
+import {Text, TextInput, View, ScrollView} from 'react-native';
 import twn from '../Tailwind';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {useForm, Controller, set} from 'react-hook-form';
+import {useForm, Controller} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import { fb } from '../firebaseconfig'
 import { db } from "../firebaseconfig"
-import Login from '../Login/Login'
 
 
 const schema = yup.object({
@@ -25,6 +23,8 @@ const erroPass = yup.object({
 
 export default function Registrar ({ navigation }){
 
+    const [pass, setPass] = useState('')
+
 
     const {control, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
@@ -37,6 +37,7 @@ export default function Registrar ({ navigation }){
        
         //Condição para registrar um novo usuário
         if (data.password === data.Confirmationpassword){
+            setPass('')
             fb.auth().createUserWithEmailAndPassword (data.email, data.password)
             .then((userCredential) => {
             // Signed in
@@ -67,7 +68,7 @@ export default function Registrar ({ navigation }){
             // ..
         });
         } else {
-            alert("As senha não estão iguais")            
+            setPass('As senhas não estão iguais')          
         }
         
     }
@@ -132,7 +133,7 @@ export default function Registrar ({ navigation }){
               />
           {errors.email && <Text style={twn`text-red-600`}>{errors.email?.message}</Text>}
 
-              <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
+        <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
               Password
           </Text>
 
@@ -154,6 +155,9 @@ export default function Registrar ({ navigation }){
               />
 
           {errors.password && <Text style={twn`text-red-600 `}>{errors.password?.message}</Text>}
+          <Text style={twn`text-red-600`}>
+                {pass}
+        </Text>
 
 
             <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
