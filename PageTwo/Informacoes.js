@@ -79,69 +79,30 @@ export default function Informacoes ({navigation}){
              > 
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo5.jpg')} 
+                    source={require('../images/artigo10.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Seis </Text>
+                     onPress={() => navigation.navigate('Alimentação na Gestação')}> Alimentação na Gravidez </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Alimentação na Gestação')}> A gestação é o período que traz diversas mudanças na vida da mulher. Por isso, algumas recomendações são feitas para que a gestante possa se manter saudável durante essa fase... </Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Alimentação na Gestação')}>Clique para saber mais</Text>
             </View>
-            <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
-             > 
-                <Image                
-                    style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo7.jpg')} 
-                    />
-                     <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Sete </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
-            </View>
-            <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
-             > 
-                <Image                
-                    style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo8.jpg')} 
-                    />
-                     <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Oito </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
-            </View>
-            <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
+ 
+            <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4 mb-4`}
              > 
                 <Image                
                     style={twn`w-full h-48 rounded-t-xl`}
                     source={require('../images/artigo9.jpg')} 
                     />
                      <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Nove </Text>
+                     onPress={() => navigation.navigate('Sexo do Bebê')}> Quando é possível saber o sexo do bebê? </Text>
                     <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
+                     onPress={() => navigation.navigate('Sexo do Bebê')}>Após a descoberta da gravidez, essa se torna uma dúvida inquietante para a maioria dos casais. Mas, hoje em dia, é possível descobrir o sexo do bebê desde o começo da gestação ...</Text>
                     <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
+                     onPress={() => navigation.navigate('Sexo do Bebê')}>Clique para saber mais</Text>
             </View>
-            <View  style={twn`bg-white ml-4 mr-4 border border-teal-800 rounded-xl mt-4`}
-             > 
-                <Image                
-                    style={twn`w-full h-48 rounded-t-xl`}
-                    source={require('../images/artigo10.jpg')} 
-                    />
-                     <Text  style={twn`pt-4 ml-2 mb-2 text-xl font-bold text-center text-pink-900`}
-                     onPress={() => navigation.navigate('Amamentação')}> Artigo Dez </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-3 text-justify text-gray-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw  dwdwdwd ijdqwjdqwd dwjqwdjwqdnqw </Text>
-                    <Text  style={twn`ml-4 mr-4 mb-4 text-justify text-teal-500 text-xs`}
-                     onPress={() => navigation.navigate('Amamentação')}>Clique para saber mais</Text>
-            </View>
-         
-            
+
         </ScrollView>
     );
 }
