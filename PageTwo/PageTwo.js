@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Text, Image} from 'react-native';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';

@@ -1,10 +1,7 @@
 import React from 'react';
 import {Text, Image, View} from 'react-native';
-import { SafeAreaView, ScrollView } from 'react-native';
-import tw from "tailwind-react-native-classnames";
+import { ScrollView } from 'react-native';
 import twn from './../Tailwind';
-import { useNavigation } from '@react-navigation/native';
-
 
 export default function Informacoes ({navigation}){
     return(

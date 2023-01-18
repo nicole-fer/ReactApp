@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, Image} from 'react-native';
+import {Text } from 'react-native';
 import { ScrollView, View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';

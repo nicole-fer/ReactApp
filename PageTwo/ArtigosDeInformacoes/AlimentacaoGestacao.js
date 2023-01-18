@@ -5,8 +5,6 @@ import { FlatList } from 'react-native-gesture-handler';
 import tw from "tailwind-react-native-classnames";
 import twn from "../../Tailwind"
 
-
-
 export default function AlimentacaoGestacao (){
     return(
         <ScrollView style={tw``} >

@@ -3,7 +3,6 @@ import {ScrollView, Text , View } from 'react-native';
 import twn from '../Tailwind';
 import { fb } from '../firebaseconfig'
 import { db } from '../firebaseconfig'
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 
@@ -11,9 +10,6 @@ import { AntDesign, FontAwesome } from '@expo/vector-icons'
  export default function Tarefas({navigation}) {
     const [tarefa, setTarefa] = useState("");
     const [loading, setLoading] = useState(true);
-    const [car, setCar] = useState(true);
-    const [firebaseData, setFirebaseData] = useState({})
-    const [teste, setTeste] = useState({})
     var user = fb.auth().currentUser;   
 
     useEffect(() => {
@@ -29,8 +25,6 @@ import { AntDesign, FontAwesome } from '@expo/vector-icons'
         }
       });
   },[])
-  
-  var stringT = JSON.stringify(tarefa);
 
     return (
         <ScrollView style={twn`w-full pt-4 bg-white`}>  

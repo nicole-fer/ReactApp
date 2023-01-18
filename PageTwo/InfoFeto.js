@@ -1,8 +1,8 @@
-import React , { useEffect, useState } from 'react';
+import React  from 'react';
 import {ScrollView, Text , View, Image, ImageBackground } from 'react-native';
 import twn from '../Tailwind';
 
- export default function AddTarefas({ navigation, route }) {  
+ export default function AddTarefas({ route }) {  
 
     var semanas = route.params.semanasFeto
 

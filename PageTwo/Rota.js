@@ -5,7 +5,7 @@ import Perfil from './Perfil';
 import Consutas from './Consultas';
 import PageTwo from './PageTwo';
 import twn from '../Tailwind';
-import { Entypo, Feather, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
+import { Entypo, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
 import AgendaComponent from './AgendaComponent';
 
 const Tab = createBottomTabNavigator();

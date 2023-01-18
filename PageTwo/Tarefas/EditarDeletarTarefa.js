@@ -1,6 +1,6 @@
 
 import React , { useEffect, useState } from 'react';
-import {ScrollView, Text , View, Image, TextInput } from 'react-native';
+import {ScrollView, Text , View, TextInput } from 'react-native';
 import styled from 'styled-components/native';
 import twn from '../../Tailwind';
 import { fb } from '../../firebaseconfig'

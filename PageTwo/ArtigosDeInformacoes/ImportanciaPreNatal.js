@@ -1,13 +1,11 @@
 import React from 'react';
 import {Text, Image, View} from 'react-native';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import tw from "tailwind-react-native-classnames";
 import twn from "../../Tailwind"
 
-
-
-export default function ImportanciaPreNatal ({navigation}){
+export default function ImportanciaPreNatal (){
     return(
         <ScrollView style={tw``} >
             <View> 

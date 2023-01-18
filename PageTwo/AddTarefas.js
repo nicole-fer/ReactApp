@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from 'react';
+import React  from 'react';
 import {ScrollView, Text , View, Image } from 'react-native';
 import twn from '../Tailwind';
 import { fb } from '../firebaseconfig'

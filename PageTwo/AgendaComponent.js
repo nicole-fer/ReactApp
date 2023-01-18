@@ -36,20 +36,10 @@ export default function AgendaComponent ({ navigation }){
     return(
         <ScrollView style={tw`w-full bg-white`} >
             <Calendar
-                // Collection of dates that have to be marked. Default = {}
-                markedDates={{
-                    '2012-05-16': {selected: true, marked: true, selectedColor: 'blue'},
-                    '2012-05-17': {marked: true},
-                    '2012-05-18': {marked: true, dotColor: 'red', activeOpacity: 0},
-                    '2012-05-19': {disabled: true, disableTouchEvent: true}
-                }}
                 enableSwipeMonths={true}
                 disableAllTouchEventsForDisabledDays={true}
                 enableHeader={false}
                 style= {tw`mt-6`}
-                onDayPress={day => {
-                    console.log('selected day', day);
-                  }}
                 />
 
           <View  style={twn`pt-12 pl-2`}> 
