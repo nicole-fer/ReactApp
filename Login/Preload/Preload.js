@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Text, Image} from 'react-native';
+import { Image } from 'react-native';
 import { View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../../Tailwind';

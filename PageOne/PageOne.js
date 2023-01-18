@@ -64,7 +64,6 @@ export default function Registrar ({ navigation }){
             .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-                console.log(error.message);
             // ..
         });
         } else {

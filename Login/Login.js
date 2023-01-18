@@ -1,12 +1,11 @@
 import React , { useState } from 'react';
-import {SafeAreaView, Text, TextInput, Image, KeyboardAvoidingView, View, Button, Touchable} from 'react-native';
+import {SafeAreaView, Text, TextInput, Image, View } from 'react-native';
 import twn from '../Tailwind';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {useForm, Controller, set} from 'react-hook-form';
+import {useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import { fb } from '../firebaseconfig'
-import { db } from '../firebaseconfig'
 
 
 const schema = yup.object({
@@ -94,7 +93,6 @@ const schema = yup.object({
 
             <TouchableOpacity style={twn`bg-pink-300 mb-2 mt-2 rounded-md`} onPress={handleSubmit(handleSingIn)}> 
                 <Text style={twn`bg-pink-500 text-center text-white py-2 font-bold text-sm rounded-md`}
-                    // onPress={() => {handleSubmit(handleSingIn)}}>
                     >Acessar
                 </Text>
             </TouchableOpacity>
