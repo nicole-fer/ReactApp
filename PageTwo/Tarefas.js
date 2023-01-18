@@ -31,7 +31,6 @@ import { AntDesign, FontAwesome } from '@expo/vector-icons'
   },[])
   
   var stringT = JSON.stringify(tarefa);
-  console.log(tarefa)
 
     return (
         <ScrollView style={twn`w-full pt-4 bg-white`}>  

@@ -30,13 +30,11 @@ export default function Perfil ({navigation}){
             }
         });
     },[])
-   console.log(firebaseData)
 
    const [hidePass, setHidePass] = useState(true);
    const [myText, setMyText] = useState(true);
    const [teste, setTeste] = useState('******')
 
-   console.log(myText)
    const pass = () => {
         setHidePass(!hidePass)
         setMyText(!myText)
@@ -47,7 +45,6 @@ export default function Perfil ({navigation}){
             //var teste = firebaseData.senha
             setTeste('******')
         }
-    console.log(myText)
    }
     
     return(

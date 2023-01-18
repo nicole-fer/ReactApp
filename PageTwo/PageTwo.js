@@ -31,7 +31,6 @@ export default function PageTwo ({navigation}){
             }
         });
     },[])
-   console.log(firebaseData)
 
     /* Cálculo de quantos dias faltam para o fim da gestação */
     var dataTesteDois = moment(`${firebaseData.mes}/${firebaseData.dia}/${firebaseData.ano}`)
@@ -39,7 +38,6 @@ export default function PageTwo ({navigation}){
     var dataDois = new Date()
     var diferenca = dataOne.getTime() - dataDois.getTime()
     var diasEspera = Math.ceil(diferenca/(1000*3600*24))
-    console.log(diasEspera, 'diasEspera')
 
     /* Considerando que uma gravidez em media tenha 280 dias, para o cálculo das semanas */
 
@@ -57,15 +55,12 @@ export default function PageTwo ({navigation}){
     /* Mostra dinamicamente as semanas de acordo com a gestacao */
     if (aux>semanasDias){
       var semanas = (aux-7)/7
-      console.log('semanas', semanas)
       var dataDias = aux-semanasDias
       dataDias = 7 - dataDias
-      console.log(`Você esta com ${semanas} semanas e ${dataDias} dias`)
       
     } else if (aux == semanasDias){
       var semanas = aux/7
       dataDias = aux-semanasDias
-      console.log(`Você esta com ${semanas} semanas e ${dataDias} dias`)
     }
 
     if(semanas <=13){

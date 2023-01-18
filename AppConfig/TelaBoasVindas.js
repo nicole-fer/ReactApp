@@ -23,7 +23,6 @@ const TelaBoasVindas = () => {
             }
         });
     },[])
-    console.log(firebaseData);
 
    if (firebaseData.dia === 0 && firebaseData.mes  === 0 && firebaseData.ano === 0 ) {
         navigation.navigate('TelaBoasVindas');

@@ -17,21 +17,16 @@ export default function EditarDeletarTarefa ({navigation, route}){
     var vcd = teste1
 
      useEffect(() => {
-      console.log('vcd',vcd)
         db.collection('MyCollection').doc(user.uid).collection('Tarefa').doc(teste1).get().then(documentSnapshot  => {
             if (documentSnapshot.exists) {
             setTeste(documentSnapshot.data());
             setLoading(false);
-            } else {
-              console.log('não deu certo')
-            }
+            } 
         });
     },[]) 
-    console.log('teste',teste)
    
     const editarTarefa = () => {
       const tarefa = teste
-      console.log(tarefa)
       db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(teste1).update({
         tarefa:tarefa,
     })
@@ -40,7 +35,6 @@ export default function EditarDeletarTarefa ({navigation, route}){
 
     const deletarTarefa = () => {
       const tarefa = teste
-      console.log(tarefa)
       db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(teste1).delete()
       navigation.navigate('Agenda') 
     }

@@ -67,16 +67,10 @@ const DataPeriodo = ({ route, navigation }) => {
         setDataPartoAno(newAno)
     }
 
-    console.log(date)
-
     const dataFinal = (dia,mes,ano) => {
         dia = dataPartoDia
         mes = dataPartoMes
         ano = dataPartoAno
-
-        console.log(dia) 
-        console.log(mes)
-        console.log(ano)
         //caso o mes for maior que 4 o ano soma mais 1
         if (mes >= 4){
             // caso seja no comeco ou no meio do mes
@@ -85,15 +79,10 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newMes = mes - 3
                 const newAno = ano + 1
 
-                console.log([newMes, newDia, newAno])
                 db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -104,15 +93,10 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newMes = mes - 2
                 const newAno = ano + 1
 
-                console.log([newMes, newDia, newAno])
                 db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -122,15 +106,11 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newMes = mes - 2
                 const newAno = ano + 1
 
-                console.log([newMes, newDia, newAno])
+            
                 db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -143,15 +123,11 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newDia = dia + 7 // mes é de 31 dias
                 const newMes = mes + 9
                 const newAno = ano 
-                console.log([newMes, newDia, newAno])
+            
                  db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -160,15 +136,11 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newDia = dia - 24 // mes é de 31 dias
                 const newMes = mes + 10
                 const newAno = ano 
-                console.log([newMes, newDia, newAno])
+            
                 db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -176,15 +148,11 @@ const DataPeriodo = ({ route, navigation }) => {
                 const newDia = dia - 21 // 28-7
                 const newMes = mes + 10
                 const newAno = ano 
-                console.log([newMes, newDia, newAno])
+            
                 db.collection("MyCollection").doc(user.uid).update({
                     dia: newDia,
                     mes: newMes,
                     ano: newAno,
-                 }).then(documentSnapshot => {
-                    if (documentSnapshot.exists) {
-                        console.log('User updated!');
-                    }
                  })
                  navigation.navigate('Rota')
             }
@@ -244,10 +212,6 @@ const DataPeriodo = ({ route, navigation }) => {
                                 dia: newDia,
                                 mes: newMes,
                                 ano: newAno,
-                             }).then(documentSnapshot => {
-                                if (documentSnapshot.exists) {
-                                    console.log('User updated!');
-                                }
                              })
                         }}
                         mask={[/\d/, /\d/, '/' , /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
