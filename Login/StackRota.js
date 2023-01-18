@@ -19,6 +19,8 @@ import Tarefas from '../PageTwo/Tarefas';
 import AddTarefas from '../PageTwo/AddTarefas';
 import EditarDeletarTarefa from '../PageTwo/Tarefas/EditarDeletarTarefa';
 import InfoFeto from '../PageTwo/InfoFeto';
+import AlimentacaoGestacao from '../PageTwo/ArtigosDeInformacoes/AlimentacaoGestacao';
+import SexoBebe from '../PageTwo/ArtigosDeInformacoes/SexoBebe';
 
 AppRegistry.registerComponent('main',() => App);
 
@@ -49,7 +51,7 @@ const UselessTextInput = () => {
                 //onSubmit={home}
             />
             <Stack.Screen 
-                name="PageOne"
+                name="Registro"
                 component={PageOne}
                 options={{
                     headerStyle: twn`bg-pink-700 `,
@@ -89,13 +91,7 @@ const UselessTextInput = () => {
                     headerShown: false,
                 }}
             /> 
-            <Stack.Screen 
-                name="Amamentação" 
-                component={Amamentacao}
-                options={{
-                    headerShown: true,
-                }}
-            /> 
+
             <Stack.Screen 
                 name="Importancia do Pré-natal" 
                 component={ImportanciaPreNatal}
@@ -111,8 +107,29 @@ const UselessTextInput = () => {
                 }}
             /> 
             <Stack.Screen 
+                name="Sexo do Bebê" 
+                component={SexoBebe}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Alimentação na Gestação" 
+                component={AlimentacaoGestacao}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
                 name="Transformações Durante a Gestação" 
                 component={EvolucaoGestacional}
+                options={{
+                    headerShown: true,
+                }}
+            /> 
+            <Stack.Screen 
+                name="Amamentação" 
+                component={Amamentacao}
                 options={{
                     headerShown: true,
                 }}
