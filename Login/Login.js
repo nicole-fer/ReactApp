@@ -15,6 +15,8 @@ const schema = yup.object({
 })
 
  export default function Login({navigation}) {
+
+    const [erroLogin, setErroLogin] = useState('')
     
     const {control, handleSubmit, handleReg, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
@@ -24,12 +26,13 @@ const schema = yup.object({
         fb.auth().signInWithEmailAndPassword(data.email, data.password)
         .then((userCredential) => {
           // Signed in
-            console.log(data.email)
+          setErroLogin('')
           var user = userCredential.user;
           navigation.navigate('TelaBoasVindas', { idUser: user.uid})
 
         })
         .catch((error) => {
+          setErroLogin('Email ou senha estão errados, tente novamente')
           var errorCode = error.code;
           var errorMessage = error.message;
         });
@@ -62,6 +65,10 @@ const schema = yup.object({
                 />
             {errors.email && <Text style={twn`text-red-600`}>{errors.email?.message}</Text>}
 
+            <Text style={twn`text-red-600`}>
+                {erroLogin}
+            </Text>
+
             <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
                 Senha
             </Text>
@@ -93,7 +100,7 @@ const schema = yup.object({
             </TouchableOpacity>
 
             <Text style={twn`bg-pink-50  text-center border-solid border-2 border-pink-500 text-pink-500 py-2 font-bold text-sm rounded-md`}
-                      onPress={() => navigation.navigate('PageOne')}>
+                      onPress={() => navigation.navigate('Registro')}>
                       Registrar
             </Text>
 
