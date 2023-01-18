@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';
 import { useNavigation } from '@react-navigation/native';
-import { Button } from 'react-native-web';
 import { fb, db } from '../firebaseconfig';
 import styled from 'styled-components/native';
 

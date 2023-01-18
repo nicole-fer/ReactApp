@@ -1,9 +1,8 @@
-import React, { useEffect, useId, useState } from 'react';
+import React, {  useState } from 'react';
 import {Text, Image} from 'react-native';
 import { View } from 'react-native';
 import twn from '../Tailwind';
 import MaskInput from 'react-native-mask-input';
-import { useNavigation } from '@react-navigation/native';
 import { fb } from '../firebaseconfig';
 import { db } from '../firebaseconfig';
 

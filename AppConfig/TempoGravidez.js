@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
-import {Text, Image, StyleSheet} from 'react-native';
+import React from 'react';
+import {Text, Image } from 'react-native';
 import { View } from 'react-native';
-import tw from "tailwind-react-native-classnames";
 import twn from '../Tailwind';
-import { useNavigation } from '@react-navigation/native';
-
 
 const TempoGravidez = ( {navigation} ) => {
     //const navigation = useNavigation();
