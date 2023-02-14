@@ -32,31 +32,31 @@ const DataPeriodo = ({ route, navigation }) => {
         }
     });
 
-     const testeOne = (masked) => {
+     const gestOne = (masked) => {
         setDate(masked)
-        const teste = masked.split('/')
-        const dia = teste[0]
-        const ano = teste[2]
-        if (teste[1] == '01') {
-            teste[1] = 1
-        } else if (teste[0] == '02'){
-            teste[1] = 2
-        } else if (teste[1] == '03'){
-            teste[1] = 3
-        } else if (teste[1] == '04'){
-            teste[1] = 4
-        } else if (teste[1] == '05'){
-            teste[1] = 5
-        } else if (teste[1] == '06'){
-            teste[1] = 6
-        } else if (teste[1] == '07'){
-            teste[1] = 7
-        } else if (teste[1] == '08'){
-            teste[1] = 8
-        } else if (teste[0] == '09'){
-            teste[1] = 9
+        const gest = masked.split('/')
+        const dia = gest[0]
+        const ano = gest[2]
+        if (gest[1] == '01') {
+            gest[1] = 1
+        } else if (gest[0] == '02'){
+            gest[1] = 2
+        } else if (gest[1] == '03'){
+            gest[1] = 3
+        } else if (gest[1] == '04'){
+            gest[1] = 4
+        } else if (gest[1] == '05'){
+            gest[1] = 5
+        } else if (gest[1] == '06'){
+            gest[1] = 6
+        } else if (gest[1] == '07'){
+            gest[1] = 7
+        } else if (gest[1] == '08'){
+            gest[1] = 8
+        } else if (gest[0] == '09'){
+            gest[1] = 9
         }  
-        const mes = teste[1]
+        const mes = gest[1]
         const newDia = parseInt(dia)
         const newMes = parseInt(mes)
         const newAno = parseInt (ano) 
@@ -175,7 +175,7 @@ const DataPeriodo = ({ route, navigation }) => {
                         style = {twn`text-sm mt-4 mb-4 bg-white text-center p-1 border border-teal-600 rounded-md `}
                         value={date}
                         placeholder={'Digite a data'}
-                        onChangeText={testeOne}
+                        onChangeText={gestOne}
                         mask={[/\d/, /\d/, '/' , /\d/, /\d/, '/', /\d/, /\d/]}
                     /> 
                     <Text   
@@ -200,10 +200,10 @@ const DataPeriodo = ({ route, navigation }) => {
                         placeholder={'Digite a data'}
                         onChangeText={(masked) => {
                             setDate(masked)
-                            const teste = masked.split('/')
-                            const dia = teste[0]
-                            const mes = teste[1]
-                            const ano = teste[2]
+                            const gest = masked.split('/')
+                            const dia = gest[0]
+                            const mes = gest[1]
+                            const ano = gest[2]
                             const newDia = parseInt(dia)
                             const newMes = parseInt(mes)
                             const newAno = parseInt (ano) 
@@ -213,7 +213,7 @@ const DataPeriodo = ({ route, navigation }) => {
                                 ano: newAno,
                              })
                         }}
-                        mask={[/\d/, /\d/, '/' , /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
+                        mask={[/\d/, /\d/, '/' , /\d/, /\d/, '/', /\d/, /\d/]}
                     />
                     <Text   
                         style={twn`bg-teal-500 border-2 border-teal-600 text-center text-white py-2 font-bold text-sm rounded-md mt-16 ml-32`}

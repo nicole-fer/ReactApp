@@ -8,34 +8,34 @@ import { db } from '../../firebaseconfig'
 
 export default function EditarDeletarTarefa ({navigation, route}){
 
-    const [teste, setTeste] = useState({})
+    const [gest, setgest] = useState({})
     const [car, setCar] = useState(true);
     const [loading, setLoading] = useState(true);
     var user = fb.auth().currentUser;   
 
-    var teste1 = route.params.idTarefa
-    var vcd = teste1
+    var gest1 = route.params.idTarefa
+    var vcd = gest1
 
      useEffect(() => {
-        db.collection('MyCollection').doc(user.uid).collection('Tarefa').doc(teste1).get().then(documentSnapshot  => {
+        db.collection('MyCollection').doc(user.uid).collection('Tarefa').doc(gest1).get().then(documentSnapshot  => {
             if (documentSnapshot.exists) {
-            setTeste(documentSnapshot.data());
+            setgest(documentSnapshot.data());
             setLoading(false);
             } 
         });
     },[]) 
    
     const editarTarefa = () => {
-      const tarefa = teste
-      db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(teste1).update({
+      const tarefa = gest
+      db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(gest1).update({
         tarefa:tarefa,
     })
     navigation.navigate('Agenda') 
     }
 
     const deletarTarefa = () => {
-      const tarefa = teste
-      db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(teste1).delete()
+      const tarefa = gest
+      db.collection("MyCollection").doc(user.uid).collection('Tarefa').doc(gest1).delete()
       navigation.navigate('Agenda') 
     }
 
@@ -50,7 +50,7 @@ export default function EditarDeletarTarefa ({navigation, route}){
       <View style={twn`flex-row`} >
           <Text  numberOfLines={2} style={twn`pb-4 font-bold text-xl flex-1 ml-2`}>Editar uma Tarefa</Text>
       </View>
-      <TextInput value={teste.tarefa} onChangeText={setTeste}  style={twn`border-2 border-pink-700 bg-pink-100 p-3 rounded-md m-2 font-bold`}  
+      <TextInput value={gest.tarefa} onChangeText={setgest}  style={twn`border-2 border-pink-700 bg-pink-100 p-3 rounded-md m-2 font-bold`}  
         >  
       </TextInput>
       <View style={twn`flex-row ml-5 mt-3`} >

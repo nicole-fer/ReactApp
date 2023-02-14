@@ -27,7 +27,7 @@ const Preload = () => {
         <View style={tw`flex-1 justify-center w-full p-8 bg-white`} >
             <Image
             style={twn`w-48 h-48 ml-16`}
-            source={require('../../images/LogoFak.jpg')}
+            source={require('../../images/logo.png')}
         />
         <LoadingIcon size="large" />
         </View>

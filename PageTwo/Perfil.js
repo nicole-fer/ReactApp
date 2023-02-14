@@ -33,17 +33,17 @@ export default function Perfil ({navigation}){
 
    const [hidePass, setHidePass] = useState(true);
    const [myText, setMyText] = useState(true);
-   const [teste, setTeste] = useState('******')
+   const [gest, setgest] = useState('******')
 
    const pass = () => {
         setHidePass(!hidePass)
         setMyText(!myText)
          if (myText === true) {
-            //var teste = '******'
-            setTeste(firebaseData.senha)
+            //var gest = '******'
+            setgest(firebaseData.senha)
         } else if (myText === false) {
-            //var teste = firebaseData.senha
-            setTeste('******')
+            //var gest = firebaseData.senha
+            setgest('******')
         }
    }
     
@@ -63,7 +63,7 @@ export default function Perfil ({navigation}){
                 style={twn`border-b border-teal-500 p-1 ml-2 mr-4 pl-4`}
                 name={myText ? true : false}
             >
-                {teste}                                                                     -
+                {gest}                                                                     -
                 <Icon 
                     name={hidePass ? 'eye-slash' : 'eye'}
                     size={15}

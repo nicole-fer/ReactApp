@@ -34,7 +34,7 @@ const TelaBoasVindas = () => {
             { isLoading && <View style={tw`flex-1 justify-center w-full p-8 bg-white`}> 
                 <Image
                     style={twn`w-48 h-48 ml-16`}
-                    source={require('../images/LogoFak.jpg')}
+                    source={require('../images/logo.png')}
                 />
                 <LoadingIcon size="large" />
             </View>}
@@ -42,7 +42,7 @@ const TelaBoasVindas = () => {
             <View>
                 <Image
                 style={twn`w-48 h-48 ml-16 mb-8`}
-                source={require('../images/LogoFakTeal.jpg')}
+                source={require('../images/logo.png')}
             />
                 <Text
                     style = {twn`text-2xl mt-4 mb-4 text-center font-bold`}>

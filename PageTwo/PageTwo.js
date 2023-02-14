@@ -33,8 +33,8 @@ export default function PageTwo ({navigation}){
     },[])
 
     /* Cálculo de quantos dias faltam para o fim da gestação */
-    var dataTesteDois = moment(`${firebaseData.mes}/${firebaseData.dia}/${firebaseData.ano}`)
-    var dataOne = new Date(dataTesteDois)
+    var datagestDois = moment(`${firebaseData.mes}/${firebaseData.dia}/${firebaseData.ano}`)
+    var dataOne = new Date(datagestDois)
     var dataDois = new Date()
     var diferenca = dataOne.getTime() - dataDois.getTime()
     var diasEspera = Math.ceil(diferenca/(1000*3600*24))
@@ -113,7 +113,7 @@ export default function PageTwo ({navigation}){
              <View style={tw`flex-1 justify-center w-full p-8 bg-white`}>
                 <Image
                     style={twn`w-48 h-48 ml-16`}
-                    source={require('../images/LogoFak.jpg')}
+                    source={require('../images/logo.png')}
                 />
                 <LoadingIcon size="large" />
             </View> }

@@ -40,8 +40,8 @@ const schema = yup.object({
     return (
         <SafeAreaView style={twn`flex-1 justify-center w-full pl-8 pr-8 bg-white pt-6`}>            
             <Image
-                style={twn`w-32 h-32 ml-20`}
-                source={require('../images/LogoFak.jpg')}
+                style={twn`w-40 h-40 ml-20`}
+                source={require('../images/logo.png')}
             />
 
             <Text style={twn`text-pink-500 text-sm font-bold mb-2 mt-4 `} > 
@@ -106,7 +106,7 @@ const schema = yup.object({
                 <View style={twn`pb-0 pt-4 pl-32 bg-white`}>
                     <Image
                         style={twn`w-8 h-8`}
-                        source={require('../images/LogoFak.jpg')}
+                        source={require('../images/logo.png')}
                     /> 
                 </View>
         </SafeAreaView>
